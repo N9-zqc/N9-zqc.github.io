@@ -20,30 +20,33 @@
     var CONFIG = {"hostname":"n9-zqc.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="主要有关ctf的学习笔记，主攻逆向和Web">
-<meta property="og:type" content="website">
-<meta property="og:title" content="N9-zqc">
-<meta property="og:url" content="https://n9-zqc.github.io/index.html">
+  <meta name="description" content="webGameV4.0打开a068097b-77f0-41a1-b8de-b2861a08c356.node4.buuoj.cn:81&#x2F;js&#x2F;data.js 滑倒最下面，找到一串base64解码可得VNCTF%7BWelcome_to_VNCTF2022%7D 所以是VNCTF{Welcome_to_VNCTF2022} misc仔细找找用stegsolve打开，可以模糊看到一串字母，换用不同">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VNCTF2022公开赛">
+<meta property="og:url" content="https://n9-zqc.github.io/2022/02/20/VNCTF2022%E5%85%AC%E5%BC%80%E8%B5%9B/index.html">
 <meta property="og:site_name" content="N9-zqc">
-<meta property="og:description" content="主要有关ctf的学习笔记，主攻逆向和Web">
+<meta property="og:description" content="webGameV4.0打开a068097b-77f0-41a1-b8de-b2861a08c356.node4.buuoj.cn:81&#x2F;js&#x2F;data.js 滑倒最下面，找到一串base64解码可得VNCTF%7BWelcome_to_VNCTF2022%7D 所以是VNCTF{Welcome_to_VNCTF2022} misc仔细找找用stegsolve打开，可以模糊看到一串字母，换用不同">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-02-20T06:28:31.000Z">
+<meta property="article:modified_time" content="2022-02-20T06:30:44.240Z">
 <meta property="article:author" content="N9-zqc">
+<meta property="article:tag" content="一次题目较难的比赛">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://n9-zqc.github.io/">
+<link rel="canonical" href="https://n9-zqc.github.io/2022/02/20/VNCTF2022%E5%85%AC%E5%BC%80%E8%B5%9B/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>N9-zqc</title>
+  <title>VNCTF2022公开赛 | N9-zqc</title>
   
 
 
@@ -142,9 +145,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
@@ -160,10 +164,9 @@
       <meta itemprop="name" content="N9-zqc">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/02/20/VNCTF2022%E5%85%AC%E5%BC%80%E8%B5%9B/" class="post-title-link" itemprop="url">VNCTF2022公开赛</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          VNCTF2022公开赛
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -187,7 +190,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <span id="more"></span>
+        <span id="more"></span>
 
 <h5 id="web"><a href="#web" class="headerlink" title="web"></a>web</h5><h6 id="GameV4-0"><a href="#GameV4-0" class="headerlink" title="GameV4.0"></a>GameV4.0</h6><p>打开<a target="_blank" rel="noopener" href="http://a068097b-77f0-41a1-b8de-b2861a08c356.node4.buuoj.cn:81/js/data.js">a068097b-77f0-41a1-b8de-b2861a08c356.node4.buuoj.cn:81/js/data.js</a></p>
 <p>滑倒最下面，找到一串base64解码可得VNCTF%7BWelcome_to_VNCTF2022%7D</p>
@@ -202,357 +205,33 @@
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span>*</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">from</span> secret <span class="keyword">import</span> flag,check</span><br><span class="line"><span class="keyword">from</span> hashlib <span class="keyword">import</span> sha256</span><br><span class="line"><span class="keyword">import</span> socketserver</span><br><span class="line"><span class="keyword">import</span> signal</span><br><span class="line"><span class="keyword">import</span> string </span><br><span class="line"></span><br><span class="line">table = string.ascii_letters+string.digits</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Task</span>(<span class="params">socketserver.BaseRequestHandler</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_recvall</span>(<span class="params">self</span>):</span></span><br><span class="line">        BUFF_SIZE = <span class="number">2048</span></span><br><span class="line">        data = <span class="string">b&#x27;&#x27;</span></span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            part = self.request.recv(BUFF_SIZE)</span><br><span class="line">            data += part</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">len</span>(part) &lt; BUFF_SIZE:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">return</span> data.strip()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">send</span>(<span class="params">self, msg, newline=<span class="literal">True</span></span>):</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="keyword">if</span> newline:</span><br><span class="line">                msg += <span class="string">b&#x27;\n&#x27;</span></span><br><span class="line">            self.request.sendall(msg)</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">recv</span>(<span class="params">self, prompt=<span class="string">b&#x27;&#x27;</span></span>):</span></span><br><span class="line">        self.send(prompt, newline=<span class="literal">False</span>)</span><br><span class="line">        <span class="keyword">return</span> self._recvall()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">proof_of_work</span>(<span class="params">self</span>):</span></span><br><span class="line">        proof = (<span class="string">&#x27;&#x27;</span>.join([random.choice(table)<span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">20</span>)])).encode()</span><br><span class="line">        sha = sha256(proof).hexdigest().encode()</span><br><span class="line">        self.send(<span class="string">b&quot;[+] sha256(XXXX+&quot;</span> + proof[<span class="number">4</span>:] + <span class="string">b&quot;) == &quot;</span> + sha )</span><br><span class="line">        XXXX = self.recv(prompt = <span class="string">b&#x27;[+] Plz Tell Me XXXX :&#x27;</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(XXXX) != <span class="number">4</span> <span class="keyword">or</span> sha256(XXXX + proof[<span class="number">4</span>:]).hexdigest().encode() != sha:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">handle</span>(<span class="params">self</span>):</span></span><br><span class="line">        proof = self.proof_of_work()</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> proof:</span><br><span class="line">            self.request.close()</span><br><span class="line">        counts = <span class="number">0</span></span><br><span class="line">        signal.alarm(<span class="number">60</span>)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">777</span>):</span><br><span class="line">            times = getPrime(<span class="number">32</span>)</span><br><span class="line">            self.send(<span class="string">b&#x27;plz give me the &#x27;</span> + <span class="built_in">str</span>(times).encode() + <span class="string">b&#x27;th (n) that satisfying (2^n-1) % 15 == 0:&#x27;</span>)</span><br><span class="line">            n = <span class="built_in">int</span>(self.recv())</span><br><span class="line">            a , ret = check(times,n)</span><br><span class="line">            <span class="keyword">if</span> a == <span class="literal">True</span>:</span><br><span class="line">                self.send(ret.encode())</span><br><span class="line">                counts += <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                self.send(ret.encode())</span><br><span class="line">        <span class="keyword">if</span> counts == <span class="number">777</span>:</span><br><span class="line">            self.send(<span class="string">b&#x27;You get flag!&#x27;</span>)</span><br><span class="line">            self.send(flag)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            self.send(<span class="string">b&#x27;something wrong?&#x27;</span>)</span><br><span class="line">        self.request.close()</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ThreadedServer</span>(<span class="params">socketserver.ThreadingMixIn, socketserver.TCPServer</span>):</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ForkedServer</span>(<span class="params">socketserver.ForkingMixIn, socketserver.TCPServer</span>):</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    HOST, PORT = <span class="string">&#x27;0.0.0.0&#x27;</span>, <span class="number">10001</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;HOST:POST &quot;</span> + HOST+<span class="string">&quot;:&quot;</span> + <span class="built_in">str</span>(PORT))</span><br><span class="line">    server = ForkedServer((HOST, PORT), Task)</span><br><span class="line">    server.allow_reuse_address = <span class="literal">True</span></span><br><span class="line">    server.serve_forever() </span><br></pre></td></tr></table></figure>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/%E4%B8%80%E6%AC%A1%E9%A2%98%E7%9B%AE%E8%BE%83%E9%9A%BE%E7%9A%84%E6%AF%94%E8%B5%9B/" rel="tag"># 一次题目较难的比赛</a>
+          </div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://n9-zqc.github.io/2022/02/20/HGAME2022%E5%A4%8D%E7%8E%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="N9-zqc">
-      <meta itemprop="description" content="主要有关ctf的学习笔记，主攻逆向和Web">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="N9-zqc">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/02/20/HGAME2022%E5%A4%8D%E7%8E%B0/" class="post-title-link" itemprop="url">HGAME2022复现</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2022-02-20 12:17:53 / Modified: 12:51:56" itemprop="dateCreated datePublished" datetime="2022-02-20T12:17:53+08:00">2022-02-20</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="这一篇文章是自己没有解出来看了别人的wp复现的文章，自己解决的在上一篇文章。"><a href="#这一篇文章是自己没有解出来看了别人的wp复现的文章，自己解决的在上一篇文章。" class="headerlink" title="这一篇文章是自己没有解出来看了别人的wp复现的文章，自己解决的在上一篇文章。"></a>这一篇文章是自己没有解出来看了别人的wp复现的文章，自己解决的在上一篇文章。</h3>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/02/20/HGAME2022%E5%A4%8D%E7%8E%B0/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://n9-zqc.github.io/2022/02/20/HGAME2022/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="N9-zqc">
-      <meta itemprop="description" content="主要有关ctf的学习笔记，主攻逆向和Web">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="N9-zqc">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/02/20/HGAME2022/" class="post-title-link" itemprop="url">HGAME2022</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2022-02-20 10:53:46 / Modified: 10:59:50" itemprop="dateCreated datePublished" datetime="2022-02-20T10:53:46+08:00">2022-02-20</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>学到了很多。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/02/20/HGAME2022/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/02/20/HGAME2022%E5%A4%8D%E7%8E%B0/" rel="prev" title="HGAME2022复现">
+      <i class="fa fa-chevron-left"></i> HGAME2022复现
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://n9-zqc.github.io/2022/02/04/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="N9-zqc">
-      <meta itemprop="description" content="主要有关ctf的学习笔记，主攻逆向和Web">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="N9-zqc">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/02/04/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">年终总结</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2022-02-04 17:22:44 / Modified: 17:27:52" itemprop="dateCreated datePublished" datetime="2022-02-04T17:22:44+08:00">2022-02-04</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h6 id="发现很多博客都有年终报告，自己想了想的确很有必要，那就写一写自己一年以来的历程。"><a href="#发现很多博客都有年终报告，自己想了想的确很有必要，那就写一写自己一年以来的历程。" class="headerlink" title="发现很多博客都有年终报告，自己想了想的确很有必要，那就写一写自己一年以来的历程。"></a>发现很多博客都有年终报告，自己想了想的确很有必要，那就写一写自己一年以来的历程。</h6>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/02/04/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://n9-zqc.github.io/2022/01/28/2022HWS%E7%A1%AC%E4%BB%B6%E5%AE%89%E5%85%A8%E5%86%AC%E4%BB%A4%E8%90%A5XDASCTFJan/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="N9-zqc">
-      <meta itemprop="description" content="主要有关ctf的学习笔记，主攻逆向和Web">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="N9-zqc">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/01/28/2022HWS%E7%A1%AC%E4%BB%B6%E5%AE%89%E5%85%A8%E5%86%AC%E4%BB%A4%E8%90%A5XDASCTFJan/" class="post-title-link" itemprop="url">2022HWS硬件安全冬令营XDASCTFJan</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2022-01-28 12:03:09 / Modified: 12:31:50" itemprop="dateCreated datePublished" datetime="2022-01-28T12:03:09+08:00">2022-01-28</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="这个比赛，我看了一看题目，做了一下，发现好难，只是挑了一个简单的题目做了做，还是个密码学问题。"><a href="#这个比赛，我看了一看题目，做了一下，发现好难，只是挑了一个简单的题目做了做，还是个密码学问题。" class="headerlink" title="这个比赛，我看了一看题目，做了一下，发现好难，只是挑了一个简单的题目做了做，还是个密码学问题。"></a>这个比赛，我看了一看题目，做了一下，发现好难，只是挑了一个简单的题目做了做，还是个密码学问题。</h4>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/01/28/2022HWS%E7%A1%AC%E4%BB%B6%E5%AE%89%E5%85%A8%E5%86%AC%E4%BB%A4%E8%90%A5XDASCTFJan/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://n9-zqc.github.io/2022/01/16/%E9%95%BF%E5%AE%89%E6%88%98%E5%BD%B9%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%8D%AB%E5%A3%AB%E5%AE%88%E6%8A%A4%E8%B5%9B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="N9-zqc">
-      <meta itemprop="description" content="主要有关ctf的学习笔记，主攻逆向和Web">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="N9-zqc">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/01/16/%E9%95%BF%E5%AE%89%E6%88%98%E5%BD%B9%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%8D%AB%E5%A3%AB%E5%AE%88%E6%8A%A4%E8%B5%9B/" class="post-title-link" itemprop="url">长安战役网络安全卫士守护赛</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-01-16 13:37:26" itemprop="dateCreated datePublished" datetime="2022-01-16T13:37:26+08:00">2022-01-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-01-28 11:52:42" itemprop="dateModified" datetime="2022-01-28T11:52:42+08:00">2022-01-28</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="本次长安战役网络安全卫士赛，我一共做出来4道题，总排名201名，一共有408份有效成绩，取前50-获得证书，201名差点就得不到证书了，好险。"><a href="#本次长安战役网络安全卫士赛，我一共做出来4道题，总排名201名，一共有408份有效成绩，取前50-获得证书，201名差点就得不到证书了，好险。" class="headerlink" title="本次长安战役网络安全卫士赛，我一共做出来4道题，总排名201名，一共有408份有效成绩，取前50%获得证书，201名差点就得不到证书了，好险。"></a>本次长安战役网络安全卫士赛，我一共做出来4道题，总排名201名，一共有408份有效成绩，取前50%获得证书，201名差点就得不到证书了，好险。</h4>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/01/16/%E9%95%BF%E5%AE%89%E6%88%98%E5%BD%B9%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%8D%AB%E5%A3%AB%E5%AE%88%E6%8A%A4%E8%B5%9B/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
   
 
 
@@ -605,6 +284,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#web"><span class="nav-number">1.</span> <span class="nav-text">web</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#GameV4-0"><span class="nav-number">1.1.</span> <span class="nav-text">GameV4.0</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#misc"><span class="nav-number">2.</span> <span class="nav-text">misc</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BB%94%E7%BB%86%E6%89%BE%E6%89%BE"><span class="nav-number">2.1.</span> <span class="nav-text">仔细找找</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Crypto"><span class="nav-number">3.</span> <span class="nav-text">Crypto</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#easy-math"><span class="nav-number">3.1.</span> <span class="nav-text">easy_math</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
