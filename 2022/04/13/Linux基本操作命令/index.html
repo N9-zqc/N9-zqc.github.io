@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"n9-zqc.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="此笔记为记录一下学习的内容">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux基本操作命令">
+<meta property="og:url" content="https://n9-zqc.github.io/2022/04/13/Linux%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4/index.html">
+<meta property="og:site_name" content="N9-zqc">
+<meta property="og:description" content="此笔记为记录一下学习的内容">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-04-13T08:00:06.000Z">
+<meta property="article:modified_time" content="2022-04-13T08:04:24.460Z">
+<meta property="article:author" content="N9-zqc">
+<meta property="article:tag" content="主要是Linux操作命令">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://n9-zqc.github.io/2022/04/13/Linux%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Linux基本操作命令 | N9-zqc</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">N9-zqc</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">有关网络安全的学习笔记,可加QQ:2501152740或发邮箱2501152740@qq.com相互交流</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-文章">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>文章</a>
+
+  </li>
+        <li class="menu-item menu-item-查找">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>查找</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://n9-zqc.github.io/2022/04/13/Linux%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="N9-zqc">
+      <meta itemprop="description" content="主要有关ctf的学习笔记,主攻逆向和Web,联系方式QQ:2501152740">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="N9-zqc">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Linux基本操作命令
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-04-13 16:00:06 / Modified: 16:04:24" itemprop="dateCreated datePublished" datetime="2022-04-13T16:00:06+08:00">2022-04-13</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>此笔记为记录一下学习的内容</p>
+<span id="more"></span>
+
+<h4 id="一：curl操作"><a href="#一：curl操作" class="headerlink" title="一：curl操作"></a>一：curl操作</h4><h5 id="1-利用curl直接访问指定的url，默认是Get方法，并显示响应报文。"><a href="#1-利用curl直接访问指定的url，默认是Get方法，并显示响应报文。" class="headerlink" title="1.利用curl直接访问指定的url，默认是Get方法，并显示响应报文。"></a>1.利用curl直接访问指定的url，默认是Get方法，并显示响应报文。</h5><h6 id="curl-http-127-0-0-1"><a href="#curl-http-127-0-0-1" class="headerlink" title="curl http://127.0.0.1"></a>curl <a target="_blank" rel="noopener" href="http://127.0.0.1/">http://127.0.0.1</a></h6><p>加上-v，可以显示详细信息：请求头，响应头，响应报文。</p>
+<p>加上-I，可以只显示响应头。</p>
+<p>–help帮助信息。</p>
+<h5 id="2-利用-X-POST"><a href="#2-利用-X-POST" class="headerlink" title="2.利用-X POST"></a>2.利用-X POST</h5><p>可以访问post请求，-d “what=flag”可以加参数。</p>
+<h5 id="3-H-“x-forwarded-for-1-1-1-1”"><a href="#3-H-“x-forwarded-for-1-1-1-1”" class="headerlink" title="3.-H “x-forwarded-for:1.1.1.1”"></a>3.-H “x-forwarded-for:1.1.1.1”</h5><p>增加请求头。-s静默模式。</p>
+<h5 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h5><p>echo $flag1 | base64 -d 2&gt; /dev/null | awk ‘{print $s2}’</p>
+<p>echo $flag1 | base64 -d 2&gt; /dev/null | cut -d”:” -f2</p>
+<h4 id="二：pwd-ls-cd"><a href="#二：pwd-ls-cd" class="headerlink" title="二：pwd ls cd"></a>二：pwd ls cd</h4><h5 id="pwd：print-working-directory-ls：list-cd：change-directory"><a href="#pwd：print-working-directory-ls：list-cd：change-directory" class="headerlink" title="pwd：print working directory ls：list cd：change directory"></a>pwd：print working directory ls：list cd：change directory</h5><p>打印当前工作目录以及列表以及更改目录（cd .. 返回上一级目录）</p>
+<p>补充：有一次把三条命令才能干完的事情，提升为一条命令完成。直接在<code>cd</code>命令后空格，然后加上你要去往的<code>绝对路径</code>的<code>/usr/bin</code>就可以。 当然，你也可以是用相对当前位置的<code>相对路径</code>的写法<code>./../usr/bin</code></p>
+<p>补充：ls -l（long）详细信息 -h（human）人性化显示</p>
+<p><strong>注意 可以用man 命令方式查看书册。</strong></p>
+<h4 id="三：文件管理"><a href="#三：文件管理" class="headerlink" title="三：文件管理"></a>三：文件管理</h4><h5 id="touch-file-创建空文件，echo-Hello-World-gt-hello-txt-向文件中输入内容echo-e让-n换行符生效-，cat-file-查看文件内容-cat-b-显示行号。"><a href="#touch-file-创建空文件，echo-Hello-World-gt-hello-txt-向文件中输入内容echo-e让-n换行符生效-，cat-file-查看文件内容-cat-b-显示行号。" class="headerlink" title="touch file 创建空文件，echo Hello World &gt; hello.txt 向文件中输入内容echo -e让\n换行符生效 ，cat file 查看文件内容 cat -b 显示行号。"></a>touch file 创建空文件，echo Hello World &gt; hello.txt 向文件中输入内容echo -e让\n换行符生效 ，cat file 查看文件内容 cat -b 显示行号。</h5><p>注意 &gt;覆盖文件而&gt;&gt;是追加文件。</p>
+<h5 id="mv-move-mv-old-file-name-new-file-name-重命名文件"><a href="#mv-move-mv-old-file-name-new-file-name-重命名文件" class="headerlink" title="mv:move mv old_file_name new_file_name 重命名文件"></a>mv:move mv old_file_name new_file_name 重命名文件</h5><h5 id="rm：remove-directory-entries-删除命令，rm-rf-全部删除rm-txt-匹配删除"><a href="#rm：remove-directory-entries-删除命令，rm-rf-全部删除rm-txt-匹配删除" class="headerlink" title="rm：remove directory entries 删除命令，rm-rf 全部删除rm *.txt 匹配删除"></a>rm：remove directory entries 删除命令，rm-rf 全部删除rm *.txt 匹配删除</h5><h5 id="mkdir-name，rmdir-name-对目录操作-mkdir-p-递归方式创建目录"><a href="#mkdir-name，rmdir-name-对目录操作-mkdir-p-递归方式创建目录" class="headerlink" title="mkdir name，rmdir name 对目录操作  mkdir -p 递归方式创建目录"></a>mkdir name，rmdir name 对目录操作  mkdir -p 递归方式创建目录</h5><h4 id="四：搜索定位文件"><a href="#四：搜索定位文件" class="headerlink" title="四：搜索定位文件"></a>四：搜索定位文件</h4><h5 id="find-search-path-name-filename查找文件名"><a href="#find-search-path-name-filename查找文件名" class="headerlink" title="find search_path -name filename查找文件名"></a>find search_path -name filename查找文件名</h5><table>
+<thead>
+<tr>
+<th align="left">find命令的参数</th>
+<th align="left">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">-type</td>
+<td align="left">指定搜索的文件类型：<code>d</code>目录文件，<code>b</code>块设备，<code>c</code>字符设备，<code>l</code>符号链接</td>
+</tr>
+<tr>
+<td align="left">-size</td>
+<td align="left">指定文件大小：n(单位k</td>
+</tr>
+<tr>
+<td align="left">-empty</td>
+<td align="left">只搜索空的文件或空目录</td>
+</tr>
+<tr>
+<td align="left">-ctime</td>
+<td align="left">指定搜索创建时间在n小时前创建的文件</td>
+</tr>
+</tbody></table>
+<p>示例find . -name a*</p>
+<h5 id="grep-文件内容搜索显示一行-grep-patterns-file"><a href="#grep-文件内容搜索显示一行-grep-patterns-file" class="headerlink" title="grep 文件内容搜索显示一行 grep patterns file"></a>grep 文件内容搜索显示一行 grep patterns file</h5><p>示例grep a test.txt</p>
+<h5 id="head和tail分别查找文件头部和尾部"><a href="#head和tail分别查找文件头部和尾部" class="headerlink" title="head和tail分别查找文件头部和尾部"></a>head和tail分别查找文件头部和尾部</h5><p>示例 head -n 5 text.txt, tail -n 5 test.txt 查看前5行和后5行。</p>
+<h5 id="diff比较文件差异-diff-filea-fileb-–color-彩色显示模式"><a href="#diff比较文件差异-diff-filea-fileb-–color-彩色显示模式" class="headerlink" title="diff比较文件差异 diff filea fileb –color 彩色显示模式"></a>diff比较文件差异 diff filea fileb –color 彩色显示模式</h5><p>示例</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">/home# diff --color a.txt b.txt</span><br><span class="line">1,3c1,2</span><br><span class="line">&lt; Hello World</span><br><span class="line">&lt; ABCDEFG</span><br><span class="line">&lt; hello</span><br><span class="line">---</span><br><span class="line">&gt; hello WORLD</span><br><span class="line">&gt; abcDEF</span><br><span class="line">5d3</span><br><span class="line">&lt; 1111</span><br><span class="line">6a5</span><br><span class="line">&gt; aaaa</span><br></pre></td></tr></table></figure>
+
+<p>1,3c1,2比对的第一行在字母c的左右两侧的数字分别表示前后两个比较文件的对应行。左侧的<code>1,3</code>表示<code>a.txt</code>文件的<code>1-3行</code>，<code>c</code>右侧的<code>1,2</code>表示<code>b.txt</code>文件的<code>1,2两行</code>中间的<code>c</code>表示<code>change</code>，也就是<code>a.txt</code>的前三行内容<code>变化</code>为<code>b.txt</code>的前两行内容。接下来的几行内容展示的就是前后变化。</p>
+<p><code>&lt;</code>开头的行表示左侧的<code>a.txt</code>文件内容，<code>&gt;</code>开头的行表示右侧的<code>b.txt</code>文件内容。<code>---</code>为前后分界线。</p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt; Hello World</span><br><span class="line">&lt; ABCDEFG</span><br><span class="line">&lt; hello</span><br><span class="line">---</span><br><span class="line">hello WORLD</span><br><span class="line">abcDEF</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>中间的字母除了c(change改变)，还有a(append增加)和d(delete删除)。5d3表示啊。txt中的第5行到b.xt文件中第3行的位置被删除了。所以这次只有左侧的<code>1111</code>，右侧此行内容被删除了。6a5表示a.txt的第6行增加a(append)了一行内容，增加的内容为b.txt中的第5行所以这次只有右侧有aaaa，为新增内容。**-y以左右两列方式显示差异**。</p>
+<h4 id="四：zip-amp-unzip命令"><a href="#四：zip-amp-unzip命令" class="headerlink" title="四：zip&amp;unzip命令"></a>四：zip&amp;unzip命令</h4><h5 id="zip-archive-inpath-inpath-s-64k-分卷大小64k，zip-big-ziph-–out-new-zip-s-1m-大压缩包重新分卷"><a href="#zip-archive-inpath-inpath-s-64k-分卷大小64k，zip-big-ziph-–out-new-zip-s-1m-大压缩包重新分卷" class="headerlink" title="zip archive inpath inpath -s 64k 分卷大小64k，zip big.ziph –out new.zip -s 1m 大压缩包重新分卷"></a>zip archive inpath inpath -s 64k 分卷大小64k，zip big.ziph –out new.zip -s 1m 大压缩包重新分卷</h5><table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">-r</td>
+<td align="left">递归遍历目录</td>
+</tr>
+<tr>
+<td align="left">-q</td>
+<td align="left">不显示压缩命令的执行过程（q为quite缩写，安静模式）</td>
+</tr>
+<tr>
+<td align="left">-d</td>
+<td align="left">删除压缩包中指定文件</td>
+</tr>
+</tbody></table>
+<p>不使用<code>-r</code>参数，压缩遇到目录，只会添加目录路径本身，不会遍历目录内其他文件。</p>
+<p>示例 zip -d backup2.zip  test/abc.txt</p>
+<h5 id="unzip-file-d-exdirfile要解压缩的文件路径-d-exdir指定要解压缩的路径，其中exdir为解压缩后的文件路径"><a href="#unzip-file-d-exdirfile要解压缩的文件路径-d-exdir指定要解压缩的路径，其中exdir为解压缩后的文件路径" class="headerlink" title="unzip file -d exdirfile要解压缩的文件路径-d exdir指定要解压缩的路径，其中exdir为解压缩后的文件路径"></a>unzip file -d exdir<code>file</code>要解压缩的文件路径<code>-d exdir</code>指定要解压缩的路径，其中<code>exdir</code>为解压缩后的文件路径</h5><p>示例将<code>backup.zip</code>文件解压到<code>/home/abc</code>目录下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip backup.zip -d /home/abc</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">-v</td>
+<td align="left">查看压缩包内容</td>
+</tr>
+<tr>
+<td align="left">-d</td>
+<td align="left">指定解压缩路径</td>
+</tr>
+</tbody></table>
+<h4 id="五：gzip-amp-tar命令"><a href="#五：gzip-amp-tar命令" class="headerlink" title="五：gzip&amp;tar命令"></a>五：gzip&amp;tar命令</h4><table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">参数长名</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">-c</td>
+<td align="left">—stdout</td>
+<td align="left">在标准输出上输出，保持原始文件</td>
+</tr>
+<tr>
+<td align="left">-d</td>
+<td align="left">—decompress</td>
+<td align="left">解压缩</td>
+</tr>
+<tr>
+<td align="left">-f</td>
+<td align="left">—force</td>
+<td align="left">强制覆盖输出文件并压缩链接</td>
+</tr>
+<tr>
+<td align="left">-h</td>
+<td align="left">—help</td>
+<td align="left">显示帮助</td>
+</tr>
+<tr>
+<td align="left">-k</td>
+<td align="left">—keep</td>
+<td align="left">保留（不删除）输入文件</td>
+</tr>
+<tr>
+<td align="left">-l</td>
+<td align="left">—list</td>
+<td align="left">列出压缩文件的内容</td>
+</tr>
+<tr>
+<td align="left">-L</td>
+<td align="left">—license</td>
+<td align="left">显示软件许可证</td>
+</tr>
+<tr>
+<td align="left">-n</td>
+<td align="left">—no-name</td>
+<td align="left">不保存或恢复原始文件名称和时间戳</td>
+</tr>
+<tr>
+<td align="left">-N</td>
+<td align="left">—name</td>
+<td align="left">保存或恢复原始文件名称和时间戳</td>
+</tr>
+<tr>
+<td align="left">-q</td>
+<td align="left">—quiet</td>
+<td align="left">禁用所有警告，安静模式</td>
+</tr>
+<tr>
+<td align="left">-r</td>
+<td align="left">—recursive</td>
+<td align="left">对目录启动递归操作</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">—syncable</td>
+<td align="left">制作对rsync友好的存档</td>
+</tr>
+<tr>
+<td align="left">-S</td>
+<td align="left">—suffix=SUF</td>
+<td align="left">在压缩文件上使用后缀 SUF</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">—synchronous</td>
+<td align="left">同步输出（如果系统崩溃，则更安全，但是更慢）</td>
+</tr>
+<tr>
+<td align="left">-t</td>
+<td align="left">—test</td>
+<td align="left">测试压缩文件的完整性</td>
+</tr>
+<tr>
+<td align="left">-v</td>
+<td align="left">—verbose</td>
+<td align="left">详细输出执行过程</td>
+</tr>
+<tr>
+<td align="left">-V</td>
+<td align="left">—version</td>
+<td align="left">显示版本号</td>
+</tr>
+<tr>
+<td align="left">-1</td>
+<td align="left">—fast</td>
+<td align="left">更快的压缩速度</td>
+</tr>
+<tr>
+<td align="left">-9</td>
+<td align="left">—best</td>
+<td align="left">最好的压缩率</td>
+</tr>
+</tbody></table>
+<p>示例 gzip -d * 解压缩 gzip -l * 查看压缩文件信息，但不解压缩文件。</p>
+<p>gzip -rv test test目录下所有文件进行gzip压缩。</p>
+<p>gzip -rd test test目录下所有文件进行解压缩</p>
+<h5 id="tar命令可以将多个文件归档到一个文件，或者从归档中还原出所有文件"><a href="#tar命令可以将多个文件归档到一个文件，或者从归档中还原出所有文件" class="headerlink" title="tar命令可以将多个文件归档到一个文件，或者从归档中还原出所有文件"></a>tar命令可以将多个文件归档到一个文件，或者从归档中还原出所有文件</h5><table>
+<thead>
+<tr>
+<th align="left">选项参数</th>
+<th align="left">长选项</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">-c</td>
+<td align="left">—create</td>
+<td align="left">创建一个新的归档文件</td>
+</tr>
+<tr>
+<td align="left">-r</td>
+<td align="left">—append</td>
+<td align="left">往归档文件末尾追加文件</td>
+</tr>
+<tr>
+<td align="left">-u</td>
+<td align="left">—update</td>
+<td align="left">将更新的文件更新到归档中</td>
+</tr>
+<tr>
+<td align="left">-x</td>
+<td align="left">—get, —extract</td>
+<td align="left">将归档中解压文件</td>
+</tr>
+<tr>
+<td align="left">-d</td>
+<td align="left">—diff, —compare</td>
+<td align="left">对归档和文件系统中的文件进行差异比较</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">—delete</td>
+<td align="left">从归档文件中删除指定文件</td>
+</tr>
+<tr>
+<td align="left">-t</td>
+<td align="left">—list</td>
+<td align="left">查看归档文件中的内容列表</td>
+</tr>
+<tr>
+<td align="left">-v</td>
+<td align="left">—verbose</td>
+<td align="left">显示执行过程</td>
+</tr>
+<tr>
+<td align="left">-z</td>
+<td align="left">—gzip</td>
+<td align="left">使用gzip进行压缩</td>
+</tr>
+<tr>
+<td align="left">-f</td>
+<td align="left">—file</td>
+<td align="left">指定备份文件名称</td>
+</tr>
+</tbody></table>
+<p>示例 tar -czvf test.tar.gz test/ 使用gzip进行压缩处理</p>
+<p>​         tar -zxvf test.tar.gz 把一个gzip压缩的归档文件进行解压缩。</p>
+<h4 id="六：linux查看压缩的zipinfo命令"><a href="#六：linux查看压缩的zipinfo命令" class="headerlink" title="六：linux查看压缩的zipinfo命令"></a>六：linux查看压缩的zipinfo命令</h4><table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">-1</td>
+<td align="left">只列出文件名，排除其他所有选项</td>
+</tr>
+<tr>
+<td align="left">-2</td>
+<td align="left">只列出文件，但可以运行[-h -t -z]选项</td>
+</tr>
+<tr>
+<td align="left">-s</td>
+<td align="left">类似Unix的<code>ls -l</code>的方式展示</td>
+</tr>
+<tr>
+<td align="left">-m</td>
+<td align="left">类似Unix的<code>ls -l</code>的方式展示，但会多列出一个压缩率</td>
+</tr>
+<tr>
+<td align="left">-l</td>
+<td align="left">类似<code>-m</code>，但会多列出文件的原始大小</td>
+</tr>
+<tr>
+<td align="left">-v</td>
+<td align="left">显示归档文件中每个文件的详细信息</td>
+</tr>
+<tr>
+<td align="left">-h</td>
+<td align="left">概览信息:归档文件名称，文件总大小和总文件数量</td>
+</tr>
+<tr>
+<td align="left">-M</td>
+<td align="left">类型Linux的<code>more</code>命令，每次显示一屏内容</td>
+</tr>
+<tr>
+<td align="left">-t</td>
+<td align="left">只显示总文件数，未压缩和压缩后的大小，以及压缩率</td>
+</tr>
+<tr>
+<td align="left">-T</td>
+<td align="left">以文件日期的循序排序显示</td>
+</tr>
+<tr>
+<td align="left">-z</td>
+<td align="left">打印压缩文件的注释</td>
+</tr>
+</tbody></table>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zipinfo [-12smlvhMtTz] file[.zip] [file(s) ...] [-x xfile(s) ...]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>[OPTION]</code> 选项参数，可以指定多个选项参数</li>
+<li><code>[FILE]</code> 要压缩的文件路径，可以指定多个要压缩文件</li>
+</ul>
+<h4 id="七：Linux查看磁盘的df命令-disk-free"><a href="#七：Linux查看磁盘的df命令-disk-free" class="headerlink" title="七：Linux查看磁盘的df命令  disk free"></a>七：Linux查看磁盘的df命令  disk free</h4><table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">长参数</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">-a</td>
+<td align="left">—all</td>
+<td align="left">统计全部类型</td>
+</tr>
+<tr>
+<td align="left">-B</td>
+<td align="left">—block-size=SIZE</td>
+<td align="left">改变显示的单位,如: -BM 以MB为单位打印磁盘容量</td>
+</tr>
+<tr>
+<td align="left">-h</td>
+<td align="left">—human-readable</td>
+<td align="left">以易读的方式显示单位(以1024的n次方)</td>
+</tr>
+<tr>
+<td align="left">-H</td>
+<td align="left">—si</td>
+<td align="left">以1000字节为单位换算</td>
+</tr>
+<tr>
+<td align="left">-i</td>
+<td align="left">—inodes</td>
+<td align="left">列出索引节点信息而不是块使用情况</td>
+</tr>
+<tr>
+<td align="left">-k</td>
+<td align="left">—block-size</td>
+<td align="left">指定block块的大小，如 1K</td>
+</tr>
+<tr>
+<td align="left">-l</td>
+<td align="left">—local</td>
+<td align="left">限制只统计本地文件系统信息</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">—no-sync</td>
+<td align="left">在获取使用情况信息之前不调用同步(默认)</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">—sync</td>
+<td align="left">在获取使用情况信息之前调用同步</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">—output[=FIELD_LIST]</td>
+<td align="left">定义输出格式，默认使用的 FIELD_LIST，省略FIELD_LIST 则打印全部字段</td>
+</tr>
+<tr>
+<td align="left">-P</td>
+<td align="left">—portability</td>
+<td align="left">使用POSIX的输出格式</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">—total</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">-t</td>
+<td align="left">—type=TYPE</td>
+<td align="left">指定要统计的文件类型</td>
+</tr>
+<tr>
+<td align="left">-T</td>
+<td align="left">—print-type</td>
+<td align="left">显示文件类型</td>
+</tr>
+<tr>
+<td align="left">-x</td>
+<td align="left">—exclude-type=TYPE</td>
+<td align="left">排除文件的类型</td>
+</tr>
+<tr>
+<td align="left">-v</td>
+<td align="left"></td>
+<td align="left">(忽略)</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">—help</td>
+<td align="left">显示帮助</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">—version</td>
+<td align="left">显示版本信息</td>
+</tr>
+</tbody></table>
+<p><code>df</code>不加任何参数，默认会以千字节为单位进行信息展示。但这种方式对于我们来说并不直观</p>
+<p>-h human readable， -a 详细信息， df 路径 显示指定文件所在分区的磁盘情况</p>
+<p>使用<code>-B</code>参数，你可以指定要显示的单位<code>1K</code>、<code>1M</code>、<code>1G</code>、<code>1T</code>、<code>1P</code>分别以<code>KB</code>、<code>MB</code>、<code>GB</code>、<code>TB</code>、<code>PB</code>为单位显示信息 可以自己指定换算单位，下面的两行分别以<code>1000</code>和<code>1024</code>为换算单位</p>
+<p><code>-T</code>参数，显示文件系统的类型信息，<code>-t</code>参数，可以指定要统计的文件类型df -Tht ext4</p>
+<h4 id="八：awk命令-可以执行的伪c语言"><a href="#八：awk命令-可以执行的伪c语言" class="headerlink" title="八：awk命令 可以执行的伪c语言"></a>八：awk命令 可以执行的伪c语言</h4><h5 id="awk-参数-‘开始代码块-主体代码块-结束代码块’-待处理文件"><a href="#awk-参数-‘开始代码块-主体代码块-结束代码块’-待处理文件" class="headerlink" title="awk 参数 ‘开始代码块 主体代码块 结束代码块’ 待处理文件"></a>awk 参数 ‘开始代码块 主体代码块 结束代码块’ 待处理文件</h5><p>示例：awk ‘BEGIN { print “Hello World” }’ BEGIN代码块<code>来输出</code>Hello World</p>
+<p>awk ‘{ print }’ hello.txt awk输出</p>
+<p>echo “Hello World” | awk ‘{ print }’ 可以通过Linux里的管道<code>|</code>命令，将要处理的内容通过<code>|</code>管道发送给后面的<code>awk</code>命令来处理</p>
+<p>awk ‘BEGIN {print “-==========-“} { print } END {print “-==========-“}’ hello.txt </p>
+<p>awk ‘{print $1 $2 $3 $4 $5 }’ scores.txt awk会按照空格，将一行数据分成多列，对于其中的每一列数据，awk都有一个变量与值对应。 第一列是<code>$1</code>，第二列是<code>$2</code></p>
+<p>awk ‘{print $1,$2,$3,$4,$5 }’ scores.txt 输出列间隙</p>
+<p>awk ‘{print $1,”\t”,$2,”\t”,$3,”\t”,$4,”\t”,$5 }’ scores.txt 控制对齐列</p>
+<p>awk ‘{printf “%s\t%s\t%s\t%s\t%s\n”,$1,$2,$3,$4,$5 }’ scores.txt <code>printf</code>函数结合<code>\t</code>来完成这个任务</p>
+<p>awk ‘$2==”赵六” { print }’ scores.txt 模式匹配</p>
+<p>awk ‘$2==”姓名” || $2==”赵六” { print }’ scores.txt  ||或者</p>
+<p>脚本文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/bash</span><br><span class="line">awk  &#x27;BEGIN &#123;</span><br><span class="line">  chinese=0</span><br><span class="line">  math=0</span><br><span class="line">  english=0</span><br><span class="line">  count = 0</span><br><span class="line">  print &quot;学号\t姓名\t语文\t数学\t英语&quot;</span><br><span class="line">&#125;</span><br><span class="line">$2!=&quot;姓名&quot;  &#123;</span><br><span class="line">  chinese += $3</span><br><span class="line">  math += $4</span><br><span class="line">  english += $5</span><br><span class="line">  count += 1</span><br><span class="line">  print $1,&quot;\t&quot;,$2,&quot;\t&quot;,$3,&quot;\t&quot;,$4,&quot;\t&quot;,$5</span><br><span class="line">&#125;</span><br><span class="line">END &#123;</span><br><span class="line">  print &quot;-------------------------------------------&quot;</span><br><span class="line">  print &quot;平均分&quot;, &quot;\t&quot;, &quot;共&quot; count &quot;人&quot;, &quot;\t&quot; , chinese/count , &quot;\t&quot; , math/count , &quot;\t&quot; , english/count</span><br><span class="line">&#125;&#x27; scores.txt</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">内置变量</th>
+<th align="left">英文全称</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">ARGC</td>
+<td align="left">arguments count</td>
+<td align="left">命令行参数数量</td>
+</tr>
+<tr>
+<td align="left">ARGV</td>
+<td align="left">arguments value</td>
+<td align="left">命令行参数数组</td>
+</tr>
+<tr>
+<td align="left">CONVFMT</td>
+<td align="left">convert format</td>
+<td align="left">数字转换为字符串的内部转换值，初始值为 <code>%.6g</code></td>
+</tr>
+<tr>
+<td align="left">ENVIRON</td>
+<td align="left">enviroment</td>
+<td align="left">环境变量构成的索引数组，<code>ENVIRON[var] = value</code>。</td>
+</tr>
+<tr>
+<td align="left">FILENAME</td>
+<td align="left">file name</td>
+<td align="left">当前输入文件的文件名</td>
+</tr>
+<tr>
+<td align="left">FNR</td>
+<td align="left">file number of records</td>
+<td align="left">当前文件的当前行记录值</td>
+</tr>
+<tr>
+<td align="left">FS</td>
+<td align="left">field separator</td>
+<td align="left">字段分割符<code>默认是空格</code></td>
+</tr>
+<tr>
+<td align="left">NF</td>
+<td align="left">number of fields</td>
+<td align="left">当前记录的分段数（列数）</td>
+</tr>
+<tr>
+<td align="left">NR</td>
+<td align="left">total number of records</td>
+<td align="left">已读出记录的当前行数</td>
+</tr>
+<tr>
+<td align="left">OFMT</td>
+<td align="left">output format</td>
+<td align="left">数字的输出格式（默认为 %.6g ）</td>
+</tr>
+<tr>
+<td align="left">OFS</td>
+<td align="left">output field separator</td>
+<td align="left">输出字段分隔符，默认和输入字段分隔符一致（空格）</td>
+</tr>
+<tr>
+<td align="left">ORS</td>
+<td align="left">output record separator</td>
+<td align="left">输出记录分隔符，默认是换行符<code>\n</code></td>
+</tr>
+<tr>
+<td align="left">RLENGTH</td>
+<td align="left"></td>
+<td align="left">match函数匹配的字符串长度</td>
+</tr>
+<tr>
+<td align="left">RS</td>
+<td align="left">[input] record separator</td>
+<td align="left">输入记录分隔符，默认是换行符<code>\n</code></td>
+</tr>
+<tr>
+<td align="left">RSTART</td>
+<td align="left"></td>
+<td align="left">match函数匹配的字符串的起始位置</td>
+</tr>
+<tr>
+<td align="left">SUBSEP</td>
+<td align="left"></td>
+<td align="left">构建多个数组下边，初始值<code>\034</code></td>
+</tr>
+</tbody></table>
+<h3 id="算术函数"><a href="#算术函数" class="headerlink" title="算术函数"></a>算术函数</h3><table>
+<thead>
+<tr>
+<th align="left">函数</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">int(x)</td>
+<td align="left">对x取整数</td>
+</tr>
+<tr>
+<td align="left">sqrt(x)</td>
+<td align="left">求x的平方根</td>
+</tr>
+<tr>
+<td align="left">exp(x)</td>
+<td align="left">求e^x</td>
+</tr>
+<tr>
+<td align="left">log(x)</td>
+<td align="left">求x的对数</td>
+</tr>
+<tr>
+<td align="left">sin(x)</td>
+<td align="left">求x的正弦值</td>
+</tr>
+<tr>
+<td align="left">cos(x)</td>
+<td align="left">求x的余弦值</td>
+</tr>
+<tr>
+<td align="left">atan2(y,x)</td>
+<td align="left">求x的反正切</td>
+</tr>
+<tr>
+<td align="left">rand()</td>
+<td align="left">0-1之前的随机数</td>
+</tr>
+<tr>
+<td align="left">srand(expr)</td>
+<td align="left">设置随机种子</td>
+</tr>
+</tbody></table>
+<h3 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h3><table>
+<thead>
+<tr>
+<th align="left">函数</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">gsub(r,s,t) gsub(r,s)</td>
+<td align="left">全局搜索子字符串，t中每个匹配正则表达式r的值都用s来替代，最后函数返回替换的次数。如果t未指定，则使用$0替代。</td>
+</tr>
+<tr>
+<td align="left">index(s,t)</td>
+<td align="left">如果t是s的子字符串，返回在s中出现的第一个t的位置，否则返回0，s中第一个字符的位置记为1</td>
+</tr>
+<tr>
+<td align="left">length(s)</td>
+<td align="left">返回字符串或数组长度</td>
+</tr>
+<tr>
+<td align="left">match(s,r)</td>
+<td align="left">返回s中最长匹配r正则的子字符串，并会把RSTART和RLENGTH值设置为匹配的子字符串的起始位置和长度</td>
+</tr>
+<tr>
+<td align="left">split(s,A,r) split(s,A)</td>
+<td align="left">使用r正则对s进行分割，分割后的元素放入A数组中，并返回分割成的元素的数量</td>
+</tr>
+<tr>
+<td align="left">sprintf(format, expr-list)</td>
+<td align="left">根据format格式返回一个字符串，</td>
+</tr>
+<tr>
+<td align="left">sub(r,s,t) sub(r,s)</td>
+<td align="left">只搜索一次子字符串，功能类似于gsub</td>
+</tr>
+<tr>
+<td align="left">substr(s,i,n) substr(s,i)</td>
+<td align="left">返回新子字符串，内容为原s中起始索引为i，长度为n的子字符串，无没有提供n，则返回起始索引为i一直到源字符串末尾的子字符串</td>
+</tr>
+<tr>
+<td align="left">tolower(s)</td>
+<td align="left">返回新字符串，将s中的字母全转为小写</td>
+</tr>
+<tr>
+<td align="left">toupper(s)</td>
+<td align="left">返回新字符串，将s中的字母全转为大写</td>
+</tr>
+</tbody></table>
+<h3 id="时间日期函数"><a href="#时间日期函数" class="headerlink" title="时间日期函数"></a>时间日期函数</h3><table>
+<thead>
+<tr>
+<th align="left">函数</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">mktime(specification)</td>
+<td align="left">用指定格式创建一个当前时间的时间戳<code>YYYY-MM-DD HH:MM:SS</code></td>
+</tr>
+<tr>
+<td align="left">strftime([format [, timestamp [, utc ]]])</td>
+<td align="left">使用指定格式，对给定时间戳构建时间字符串</td>
+</tr>
+<tr>
+<td align="left">systime()</td>
+<td align="left">返回系统当前时间（秒数），从<code>1970-01-01 00:00:00 UTC</code>至今</td>
+</tr>
+</tbody></table>
+<p>输入函数，通过<code>getline</code>实现。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 直接读取到$0中</span><br><span class="line">getline</span><br><span class="line"># 从file路径中读取到$0</span><br><span class="line">getline &lt; file</span><br><span class="line"># 从file文件读取到var变量中</span><br><span class="line">getline var &lt; file</span><br><span class="line"># 通过管道将command命令结果读取到$0</span><br><span class="line">command | getline</span><br><span class="line"># 通过管道将command命令结果读取到var</span><br><span class="line">command | getline var</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//自定义函数</span><br><span class="line">function 函数名(参数)&#123;</span><br><span class="line">  return 返回值</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="控制语句"><a href="#控制语句" class="headerlink" title="控制语句"></a>控制语句</h6><p>awk支持四种主流的逻辑控制语句：<code>if-else</code>、<code>while</code>、<code>do-while</code>和<code>for</code>。如果你有<code>C/C++</code>，<code>JavaScript</code>或者<code>Java</code>这些主流编程语言。那这些逻辑控制语句你也就已经掌握了。当然为了照顾零基础的阅读者，我还是有必要列举下这几种控制语句的常用场景。</p>
+<p>示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">awk &#x27;BEGIN &#123;</span><br><span class="line">  score=80</span><br><span class="line">  if(score&gt;=60)</span><br><span class="line">    print &quot;合格&quot;</span><br><span class="line">  else</span><br><span class="line">    print &quot;不合格&quot;</span><br><span class="line">&#125;&#x27;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk &#x27;BEGIN &#123;  nums[0] = 100  nums[1] = 200  nums[2] = 300  nums[3] = 400  for(i=0;i&lt;length(nums);i++)    print nums[i]&#125;&#x27;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk &#x27;BEGIN &#123;  nums[0] = 100  nums[1] = 200  nums[2] = 300  nums[3] = 400  for(key in nums)      print nums[key]&#125;&#x27;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk &#x27;BEGIN &#123;  i = 1  while(i&lt;10)&#123;      print i      i++  &#125;&#125;&#x27;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk &#x27;BEGIN &#123;  i = 1  do&#123;      print i      i++  &#125;while(i&lt;10)&#125;&#x27;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk &#x27;BEGIN &#123;  i = 1  do&#123;      print i      i++      if(i==10) break  &#125;while(1==1)&#125;&#x27;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exit(返回码)</span><br></pre></td></tr></table></figure>
+
+<p>返回码如果设置为0表示正常退出，非零表示异常退出</p>
+<h4 id="九：sed命令"><a href="#九：sed命令" class="headerlink" title="九：sed命令"></a>九：sed命令</h4><h5 id="替换操作会用到script中的s命令，s命令的语法格式如下："><a href="#替换操作会用到script中的s命令，s命令的语法格式如下：" class="headerlink" title="替换操作会用到script中的s命令，s命令的语法格式如下："></a>替换操作会用到script中的<code>s命令</code>，<code>s命令</code>的语法格式如下：</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s/regexp/replacement/[flags]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>regexp</code>是要查找匹配的正则</li>
+<li><code>replacement</code>是替换内容</li>
+<li><code>[flags]</code>是可选的，用来添加一些额外标记参数</li>
+</ul>
+<p>示例 假设我们有一个文件<code>hello.txt</code>，这个文件里的内容如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello World!</span><br></pre></td></tr></table></figure>
+
+<p>我们想要把后面的<code>World</code>替换成<code>Sed</code>。我们可以这样来写：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed &#x27;s/World/Sed/&#x27; hello.txt</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>&#39;s/World/Sed/&#39;</code>就是<code>[SCRIPT]</code>脚本命名，这里用的是<code>s命令</code></li>
+<li>s命令后面用三根<code>/</code>斜杠分了两个区域，<code>World</code>是要查找的字符，<code>Sed</code>是替换后的字符。</li>
+<li><code>hello.txt</code>是要sed要处理的文件路径。</li>
+<li>最后处理完的结果会显示到标准输出，也就是屏幕上。</li>
+</ul>
+<p>sed ‘s/World/Sed/‘ hello.txt &gt; result.txt 写入到result.txt</p>
+<p> 示例2</p>
+<p>sed本身也有写入文件的操作,通过<code>w</code>命令后面跟随要写出结果的文件路径即可。当然别忘了w后面要至少留一个空格。</p>
+<p>sed ‘s/World/Sed/w result2.txt’ hello.txt sed会往屏幕和<code>result2.txt</code>两个地方同时输出内容</p>
+<p>示例3</p>
+<p>sed -i ‘s/World/Sed/‘ hello.txt 将本次处理的结果直接写入到原文件中。利用<code>[options]</code>部分的<code>-i</code>选项，当然这个操作一旦执行，原文件的内容就会被修改掉</p>
+<p>示例4</p>
+<p>sed ‘s/t/T/g’ story.txt 全局替换表示所有的都替换</p>
+<p>示例5</p>
+<p>sed ‘2,3 s/t/T/g’ story.txt <code>2,3</code>就是指定了要处理的范围</p>
+<h5 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h5><ul>
+<li><p><code>a\新追加内容</code> 也可以写成<code>a 新追加内容</code>：这个命令是<code>append</code>用来在匹配位置后方追加内容。</p>
+</li>
+<li><p><code>i\新插入内容</code> 也可以写成<code>i 新插入内容</code>：这个命令是<code>insert</code>用来往匹配位置前面插入内容。</p>
+</li>
+<li><p><code>c\新修改内容</code> 也可以写成<code>c 新修改内容</code>：这个命令是<code>change</code>用来修改匹配位置的内容。</p>
+</li>
+<li><p><code>d</code>这个命令是<code>delete</code>用来删除匹配内容</p>
+</li>
+<li><p>下面的例子让<code>2-3行</code>后方分别<code>append</code>追加一行<code>----</code></p>
+</li>
+<li><p>```undefined<br>sed ‘2,3 a —-‘ story.txt# 等价于sed ‘2,3 a-—‘ story.txt</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">sed &#x27;2,3 d&#x27; story.txt 删除第2-3行的内容</span><br><span class="line"></span><br><span class="line">##### 其他</span><br><span class="line"></span><br><span class="line">- `h`命令将当前`pattern space`中的内容替换掉`hold space`中的老内容。</span><br><span class="line">- `g`命令的操作和`h`正好相反，从`hold space`中取出内容放入`pattern space`</span><br><span class="line"></span><br><span class="line">sed -n &#x27;2p&#x27; story.txt `-n`，`--quiet`和`--silent`：这三个是等价的选项，启用后只有在命令中主动用`p`命令输出的匹配行才会输出</span><br><span class="line"></span><br><span class="line">sed --debug -e &#x27;s/^t/T/; 2d; 4d&#x27; story.txt `--debug`可用于调试查看`sed`的每次循环的执行过程，这对于分析`sed`非常有帮助</span><br><span class="line"></span><br><span class="line">| 命令                           | 说明                                                         |</span><br><span class="line">| :----------------------------- | :----------------------------------------------------------- |</span><br><span class="line">| `p`                            | 打印模式空间                                                 |</span><br><span class="line">| `q[exit-code]`或`Q[exit-code]` | 退出sed程序，exit-code可以设置退出状态码                     |</span><br><span class="line">| `w filename`                   | 将模式空间内容写入`filename`路径指定的文件                   |</span><br><span class="line">| `W filename`                   | 将模式空间部分内容写入`filename`路径指定的文件，只写出遇到第一个换行符就停止，所以只输出1行内容。 |</span><br><span class="line">| `x`                            | 交换模式空间和保持空间里的内容。                             |</span><br><span class="line">| `g`                            | 使用保持空间中的内容替换模式空间的内容(模式空间原来的内容会被清除) |</span><br><span class="line">| `G`                            | 在模式空间中追加以个新行，之后把保持空间的内容添加到模式空间(和`g`唯一的区别是会保留原来的内容) |</span><br><span class="line">| `h`                            | 使用模式空间中的内容替换保持空间中的内容(和g命令相反)        |</span><br><span class="line">| `H`                            | 在保持空间中追加以个新行，之后把模式空间的内容添加到保持空间(和`G`操作相反) |</span><br><span class="line"></span><br><span class="line">p命令的全称是`print`，是用来打印当前模式空间的内容</span><br><span class="line"></span><br><span class="line">sed --debug -e &#x27;p&#x27; story.txt</span><br><span class="line"></span><br><span class="line">利用q命令，在执行两条语句后，退出sed。</span><br><span class="line"></span><br><span class="line">```undefined</span><br><span class="line">sed -e &#x27;2q&#x27; story.txt</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><code>q</code>命令可以携带一个退出码<code>exit-code</code>，用来表明本次是否为异常退出。 退出后，退出码<code>exit-code</code>的值可以用<code>$?</code>查询到。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -e &#x27;q2&#x27; story.txtecho $?</span><br></pre></td></tr></table></figure>
+
+<h2 id="sed里的两个空间"><a href="#sed里的两个空间" class="headerlink" title="sed里的两个空间"></a>sed里的两个空间</h2><p>在sed对文本进行处理的时候，会用到两个空间（缓冲区）：<code>pattern space</code>模式空间和<code>hold space</code>保持空间。</p>
+<h3 id="pattern-space"><a href="#pattern-space" class="headerlink" title="pattern space"></a>pattern space</h3><p>对于绝大多数的命名操作，其实都是在和<code>pattern space</code>打交道，上面在分析<code>debug</code>的时候看到的<code>PATTERN</code>就是指的<code>pattern space</code>模式空间。它是用来放置正在处理的文本和操作结果的一个缓冲区。<code>p</code>命令打印输出的也是这个空间的内容。</p>
+<h3 id="hold-space"><a href="#hold-space" class="headerlink" title="hold space"></a>hold space</h3><p><code>hold space</code>保持空间就像是一个<code>包裹寄存箱</code>。帮<code>pattern space</code>管理一些需要暂时存放的数据，等<code>pattern space</code>模式空间需要的时候，可以把这里存放的数据再取出来使用。 有些命令的操作会涉及到<code>hold space</code>，比如：</p>
+<ul>
+<li><code>h</code>命令将当前<code>pattern space</code>中的内容替换掉<code>hold space</code>中的老内容。</li>
+<li><code>g</code>命令的操作和<code>h</code>正好相反，从<code>hold space</code>中取出内容放入<code>pattern space</code></li>
+</ul>
+<h4 id="g、G、h和H"><a href="#g、G、h和H" class="headerlink" title="g、G、h和H"></a>g、G、h和H</h4><p>这四个命令是两组在模式空间和保持空间内容迁移的命令。 g和h是一组，g是替换模式空间内容，h是(hold)用来替换保持空间的内容。 G和H是一组，比上面那一组，多了保留原来空间内容的功能。</p>
+<p>为了更清楚得认识他们，我们做一组实验：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">seq 3 | sed --debug -e &#x27;H&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>上面使用<code>seq 3</code>生成一个如下的1-3的序列：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">123</span><br></pre></td></tr></table></figure>
+
+<p>然后通过<code>|</code>管道命令发送给后面的sed处理。</p>
+<h4 id="执行多条命令"><a href="#执行多条命令" class="headerlink" title="执行多条命令"></a>执行多条命令</h4><p>如果你要在同一个文件上执行多次操作，有两种方式：</p>
+<ul>
+<li><code>&#123; cmd; cmd &#125;</code> 你可以执行多条命名中间用<code>;</code>分号分开</li>
+<li><code>-e script -e script </code>也可以用多条<code>-e</code>语句，这里的<code>-e</code>的全量写法是<code>--expression</code></li>
+</ul>
+<p>比如对于<code>story.txt</code>文件，我们希望将所有开头的<code>t</code>换成<code>T</code>，并删除第2和第4句。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -e &#x27;s/^t/T/&#x27; -e &#x27;2d&#x27; -e &#x27;4d&#x27; story.txt# 等价于sed -e &#x27;s/^t/T/; 2d; 4d&#x27; story.txt</span><br></pre></td></tr></table></figure>
+
+<h4 id="十：top命令"><a href="#十：top命令" class="headerlink" title="十：top命令"></a>十：top命令</h4><h5 id="top了解服务器的运行状态"><a href="#top了解服务器的运行状态" class="headerlink" title="top了解服务器的运行状态"></a>top了解服务器的运行状态</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">top - 19:25:37 up  3:46,  2 users,  load average: 0.00, 0.05, 0.10Tasks:  97 total,   1 running,  96 sleeping,   0 stopped,   0 zombie%Cpu(s):  1.0 us,  1.0 sy,  0.0 ni, 98.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 stKiB Mem :  1014720 total,   207632 free,   313624 used,   493464 buff/cacheKiB Swap:  4095996 total,  3379452 free,   716544 used.   534020 avail Mem  PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND 3548 mysql     20   0  985096   5548   1560 S  0.3  0.5   0:06.74 mysqld</span><br></pre></td></tr></table></figure>
+
+<p>别着急，让我们耐心分析一下上面这堆内容，一会你就会全明白的：</p>
+<p>首行：系统的整体情况概览</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">名称            系统运行3时:46分            系统负载：1分钟/5分钟/15分钟级top - 19:25:37 up  3:46,  2 users,  load average: 0.00, 0.05, 0.10     系统当前时间         当前登录用户数2人       对于单核CPU 1.0表示满负载</span><br></pre></td></tr></table></figure>
+
+<p>第2行：进程状态</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">进程总任务数：97个     运行进程1个  96个当前睡眠状态  停止进程0个    僵尸进程0个Tasks:  97 total,   1 running,  96 sleeping,   0 stopped,   0 zombie</span><br></pre></td></tr></table></figure>
+
+<p>第3行：CPU状态</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cpu占用比： 用户空间  内核空间  用户定义优先级  空闲   等待IO   硬中断    软中断     虚拟机%Cpu(s):  1.0 us,  1.0 sy,  0.0 ni, 98.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st</span><br></pre></td></tr></table></figure>
+
+<p>第3-4行： 内存和Swap交换区状态</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">单位 物理内存         总量            空闲           已使用           内核缓存用量KiB Mem :  1014720 total,   207632 free,   313624 used,   493464 buff/cache    交换区           总量            空闲           已使用              可用内存KiB Swap:  4095996 total,  3379452 free,   716544 used.   534020 avail Mem</span><br></pre></td></tr></table></figure>
+
+<p>最后需要了解的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">进程ID      优先级 Nice值 虚拟内存 物理内存 共享内存 CPU  内存    CPU总时间 命令  PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND 3548 mysql     20   0  985096   5548   1560 S  0.3  0.5   0:06.74 mysql                                          进程状态</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>NI 负值表示高优先级，正值表示低优先级</p>
+</blockquote>
+<h3 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h3><ul>
+<li><p><code>shift+e</code> 切换内存显示模式（可重复按键切换）</p>
+</li>
+<li><p><code>z</code> 切换是否彩色显示（可重复按键切换）</p>
+</li>
+<li><p><code>m</code> 切换内存显示模式（可重复按键切换）</p>
+</li>
+<li><p><code>e</code> 切换底部进程中单位的显示模式（可重复按键切换）</p>
+</li>
+<li><h5 id="b-切换高亮选中（可重复按键切换）"><a href="#b-切换高亮选中（可重复按键切换）" class="headerlink" title="b 切换高亮选中（可重复按键切换）"></a><code>b</code> 切换高亮选中（可重复按键切换）</h5></li>
+<li><p><code>W</code> 把当前配置保存到文件中，下次启动top会使用当前的配置</p>
+</li>
+<li><p><code>h</code> 进入帮助菜单 (进入菜单后，可按ESC或q退出帮助菜单)</p>
+</li>
+<li><p><code>q</code> 退出<code>top</code>命令</p>
+</li>
+</ul>
+<h5 id="排序字段"><a href="#排序字段" class="headerlink" title="排序字段"></a>排序字段</h5><p>底部的进程排序，是可以选择按指定列进行排序的。</p>
+<ul>
+<li>先按<code>f</code>进入字段选择界面，</li>
+<li>然后按<code>上下键</code>选择要排序的字段，界面会高亮显示，选中合适的内容</li>
+<li>确定选中操作后，按下<code>s</code>键，激活这个选择。</li>
+<li>最后按<code>q</code>键退出排序字段选择界面。</li>
+</ul>
+<p>你会看到不同的排序界面</p>
+<h4 id="十一：free命令"><a href="#十一：free命令" class="headerlink" title="十一：free命令"></a>十一：free命令</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># free              总量          已用         未用        共享      缓存         可用              total        used        free      shared  buff/cache   availableMem：  内存Swap： 交换区</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>total：系统上安装的总内存量/Swap交换区总量</li>
+<li>used：已用内存，公式：<code>used = total - free - buffers - cache</code></li>
+<li>shared：用作共享内存的内存用量</li>
+<li>buff/cache：所有buff和cache的总用量</li>
+<li>buffers：内核缓冲用量</li>
+</ul>
+<p>其中会让人产生困惑的是<code>free</code>和<code>avaiable</code>这两个字段。</p>
+<ul>
+<li>free：是未使用的内存。</li>
+<li>avaiable：为系统估计的可用于启动新应用而无需交换的可用内存量。</li>
+</ul>
+<p><code>-h</code>有human的含义，意思是给人阅读的选项</p>
+<ul>
+<li>-b, —bytes 以字节为单位展示</li>
+<li>-k, —kilo 以KB为单位展示</li>
+<li>-m, —mega 以MB为单位展示</li>
+<li>-g, —giga 以GB为单位展示</li>
+</ul>
+<blockquote>
+<p>每一种选项提供了缩写和全写两种使用方式，比如：-b 就是缩写 —bytes 就是完整写法</p>
+</blockquote>
+<p>所以下面两种使用方法是等价的。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">free -b</span><br><span class="line">free --bytes</span><br></pre></td></tr></table></figure>
+
+<p>当然，有时你可能会想观察一段时间的内存变化。这时，我们可以设置free的更新频率和更新次数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-s 5  # 每隔5s更新一次</span><br><span class="line">-c 10 # 更新10次后结束</span><br></pre></td></tr></table></figure>
+
+<p>所以你可以这样设置，那么每隔5秒更新一次信息，连续更新10次后退出命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">free -s 5 -c 10</span><br></pre></td></tr></table></figure>
+
+<p>你也可以这样设置，每隔2秒更新一次内存用量信息，直到你按下<code>ctrl+c</code>终止这个程序运行，否则这个程序会一直运行下去。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">free -s 2</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E4%B8%BB%E8%A6%81%E6%98%AFLinux%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4/" rel="tag"># 主要是Linux操作命令</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/02/25/HSC-1th/" rel="prev" title="HSC-1th">
+      <i class="fa fa-chevron-left"></i> HSC-1th
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%EF%BC%9Acurl%E6%93%8D%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">一：curl操作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E5%88%A9%E7%94%A8curl%E7%9B%B4%E6%8E%A5%E8%AE%BF%E9%97%AE%E6%8C%87%E5%AE%9A%E7%9A%84url%EF%BC%8C%E9%BB%98%E8%AE%A4%E6%98%AFGet%E6%96%B9%E6%B3%95%EF%BC%8C%E5%B9%B6%E6%98%BE%E7%A4%BA%E5%93%8D%E5%BA%94%E6%8A%A5%E6%96%87%E3%80%82"><span class="nav-number">1.1.</span> <span class="nav-text">1.利用curl直接访问指定的url，默认是Get方法，并显示响应报文。</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#curl-http-127-0-0-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">curl http:&#x2F;&#x2F;127.0.0.1</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E5%88%A9%E7%94%A8-X-POST"><span class="nav-number">1.2.</span> <span class="nav-text">2.利用-X POST</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-H-%E2%80%9Cx-forwarded-for-1-1-1-1%E2%80%9D"><span class="nav-number">1.3.</span> <span class="nav-text">3.-H “x-forwarded-for:1.1.1.1”</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B"><span class="nav-number">1.4.</span> <span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%EF%BC%9Apwd-ls-cd"><span class="nav-number">2.</span> <span class="nav-text">二：pwd ls cd</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#pwd%EF%BC%9Aprint-working-directory-ls%EF%BC%9Alist-cd%EF%BC%9Achange-directory"><span class="nav-number">2.1.</span> <span class="nav-text">pwd：print working directory ls：list cd：change directory</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%EF%BC%9A%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86"><span class="nav-number">3.</span> <span class="nav-text">三：文件管理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#touch-file-%E5%88%9B%E5%BB%BA%E7%A9%BA%E6%96%87%E4%BB%B6%EF%BC%8Cecho-Hello-World-gt-hello-txt-%E5%90%91%E6%96%87%E4%BB%B6%E4%B8%AD%E8%BE%93%E5%85%A5%E5%86%85%E5%AE%B9echo-e%E8%AE%A9-n%E6%8D%A2%E8%A1%8C%E7%AC%A6%E7%94%9F%E6%95%88-%EF%BC%8Ccat-file-%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9-cat-b-%E6%98%BE%E7%A4%BA%E8%A1%8C%E5%8F%B7%E3%80%82"><span class="nav-number">3.1.</span> <span class="nav-text">touch file 创建空文件，echo Hello World &gt; hello.txt 向文件中输入内容echo -e让\n换行符生效 ，cat file 查看文件内容 cat -b 显示行号。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#mv-move-mv-old-file-name-new-file-name-%E9%87%8D%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6"><span class="nav-number">3.2.</span> <span class="nav-text">mv:move mv old_file_name new_file_name 重命名文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#rm%EF%BC%9Aremove-directory-entries-%E5%88%A0%E9%99%A4%E5%91%BD%E4%BB%A4%EF%BC%8Crm-rf-%E5%85%A8%E9%83%A8%E5%88%A0%E9%99%A4rm-txt-%E5%8C%B9%E9%85%8D%E5%88%A0%E9%99%A4"><span class="nav-number">3.3.</span> <span class="nav-text">rm：remove directory entries 删除命令，rm-rf 全部删除rm *.txt 匹配删除</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#mkdir-name%EF%BC%8Crmdir-name-%E5%AF%B9%E7%9B%AE%E5%BD%95%E6%93%8D%E4%BD%9C-mkdir-p-%E9%80%92%E5%BD%92%E6%96%B9%E5%BC%8F%E5%88%9B%E5%BB%BA%E7%9B%AE%E5%BD%95"><span class="nav-number">3.4.</span> <span class="nav-text">mkdir name，rmdir name 对目录操作  mkdir -p 递归方式创建目录</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%9B%EF%BC%9A%E6%90%9C%E7%B4%A2%E5%AE%9A%E4%BD%8D%E6%96%87%E4%BB%B6"><span class="nav-number">4.</span> <span class="nav-text">四：搜索定位文件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#find-search-path-name-filename%E6%9F%A5%E6%89%BE%E6%96%87%E4%BB%B6%E5%90%8D"><span class="nav-number">4.1.</span> <span class="nav-text">find search_path -name filename查找文件名</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#grep-%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%E6%90%9C%E7%B4%A2%E6%98%BE%E7%A4%BA%E4%B8%80%E8%A1%8C-grep-patterns-file"><span class="nav-number">4.2.</span> <span class="nav-text">grep 文件内容搜索显示一行 grep patterns file</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#head%E5%92%8Ctail%E5%88%86%E5%88%AB%E6%9F%A5%E6%89%BE%E6%96%87%E4%BB%B6%E5%A4%B4%E9%83%A8%E5%92%8C%E5%B0%BE%E9%83%A8"><span class="nav-number">4.3.</span> <span class="nav-text">head和tail分别查找文件头部和尾部</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#diff%E6%AF%94%E8%BE%83%E6%96%87%E4%BB%B6%E5%B7%AE%E5%BC%82-diff-filea-fileb-%E2%80%93color-%E5%BD%A9%E8%89%B2%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%BC%8F"><span class="nav-number">4.4.</span> <span class="nav-text">diff比较文件差异 diff filea fileb –color 彩色显示模式</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%9B%EF%BC%9Azip-amp-unzip%E5%91%BD%E4%BB%A4"><span class="nav-number">5.</span> <span class="nav-text">四：zip&amp;unzip命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#zip-archive-inpath-inpath-s-64k-%E5%88%86%E5%8D%B7%E5%A4%A7%E5%B0%8F64k%EF%BC%8Czip-big-ziph-%E2%80%93out-new-zip-s-1m-%E5%A4%A7%E5%8E%8B%E7%BC%A9%E5%8C%85%E9%87%8D%E6%96%B0%E5%88%86%E5%8D%B7"><span class="nav-number">5.1.</span> <span class="nav-text">zip archive inpath inpath -s 64k 分卷大小64k，zip big.ziph –out new.zip -s 1m 大压缩包重新分卷</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#unzip-file-d-exdirfile%E8%A6%81%E8%A7%A3%E5%8E%8B%E7%BC%A9%E7%9A%84%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84-d-exdir%E6%8C%87%E5%AE%9A%E8%A6%81%E8%A7%A3%E5%8E%8B%E7%BC%A9%E7%9A%84%E8%B7%AF%E5%BE%84%EF%BC%8C%E5%85%B6%E4%B8%ADexdir%E4%B8%BA%E8%A7%A3%E5%8E%8B%E7%BC%A9%E5%90%8E%E7%9A%84%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84"><span class="nav-number">5.2.</span> <span class="nav-text">unzip file -d exdirfile要解压缩的文件路径-d exdir指定要解压缩的路径，其中exdir为解压缩后的文件路径</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%94%EF%BC%9Agzip-amp-tar%E5%91%BD%E4%BB%A4"><span class="nav-number">6.</span> <span class="nav-text">五：gzip&amp;tar命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#tar%E5%91%BD%E4%BB%A4%E5%8F%AF%E4%BB%A5%E5%B0%86%E5%A4%9A%E4%B8%AA%E6%96%87%E4%BB%B6%E5%BD%92%E6%A1%A3%E5%88%B0%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%EF%BC%8C%E6%88%96%E8%80%85%E4%BB%8E%E5%BD%92%E6%A1%A3%E4%B8%AD%E8%BF%98%E5%8E%9F%E5%87%BA%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6"><span class="nav-number">6.1.</span> <span class="nav-text">tar命令可以将多个文件归档到一个文件，或者从归档中还原出所有文件</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%AD%EF%BC%9Alinux%E6%9F%A5%E7%9C%8B%E5%8E%8B%E7%BC%A9%E7%9A%84zipinfo%E5%91%BD%E4%BB%A4"><span class="nav-number">7.</span> <span class="nav-text">六：linux查看压缩的zipinfo命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%83%EF%BC%9ALinux%E6%9F%A5%E7%9C%8B%E7%A3%81%E7%9B%98%E7%9A%84df%E5%91%BD%E4%BB%A4-disk-free"><span class="nav-number">8.</span> <span class="nav-text">七：Linux查看磁盘的df命令  disk free</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%AB%EF%BC%9Aawk%E5%91%BD%E4%BB%A4-%E5%8F%AF%E4%BB%A5%E6%89%A7%E8%A1%8C%E7%9A%84%E4%BC%AAc%E8%AF%AD%E8%A8%80"><span class="nav-number">9.</span> <span class="nav-text">八：awk命令 可以执行的伪c语言</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#awk-%E5%8F%82%E6%95%B0-%E2%80%98%E5%BC%80%E5%A7%8B%E4%BB%A3%E7%A0%81%E5%9D%97-%E4%B8%BB%E4%BD%93%E4%BB%A3%E7%A0%81%E5%9D%97-%E7%BB%93%E6%9D%9F%E4%BB%A3%E7%A0%81%E5%9D%97%E2%80%99-%E5%BE%85%E5%A4%84%E7%90%86%E6%96%87%E4%BB%B6"><span class="nav-number">9.1.</span> <span class="nav-text">awk 参数 ‘开始代码块 主体代码块 结束代码块’ 待处理文件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%9C%AF%E5%87%BD%E6%95%B0"><span class="nav-number"></span> <span class="nav-text">算术函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0"><span class="nav-number"></span> <span class="nav-text">字符串函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E6%97%A5%E6%9C%9F%E5%87%BD%E6%95%B0"><span class="nav-number"></span> <span class="nav-text">时间日期函数</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5"><span class="nav-number">0.0.1.</span> <span class="nav-text">控制语句</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B9%9D%EF%BC%9Ased%E5%91%BD%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">九：sed命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9B%BF%E6%8D%A2%E6%93%8D%E4%BD%9C%E4%BC%9A%E7%94%A8%E5%88%B0script%E4%B8%AD%E7%9A%84s%E5%91%BD%E4%BB%A4%EF%BC%8Cs%E5%91%BD%E4%BB%A4%E7%9A%84%E8%AF%AD%E6%B3%95%E6%A0%BC%E5%BC%8F%E5%A6%82%E4%B8%8B%EF%BC%9A"><span class="nav-number">1.1.</span> <span class="nav-text">替换操作会用到script中的s命令，s命令的语法格式如下：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%91%BD%E4%BB%A4"><span class="nav-number">1.2.</span> <span class="nav-text">其他命令</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sed%E9%87%8C%E7%9A%84%E4%B8%A4%E4%B8%AA%E7%A9%BA%E9%97%B4"><span class="nav-number"></span> <span class="nav-text">sed里的两个空间</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pattern-space"><span class="nav-number"></span> <span class="nav-text">pattern space</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hold-space"><span class="nav-number"></span> <span class="nav-text">hold space</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#g%E3%80%81G%E3%80%81h%E5%92%8CH"><span class="nav-number">1.</span> <span class="nav-text">g、G、h和H</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E5%A4%9A%E6%9D%A1%E5%91%BD%E4%BB%A4"><span class="nav-number">2.</span> <span class="nav-text">执行多条命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%81%EF%BC%9Atop%E5%91%BD%E4%BB%A4"><span class="nav-number">3.</span> <span class="nav-text">十：top命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#top%E4%BA%86%E8%A7%A3%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E8%BF%90%E8%A1%8C%E7%8A%B6%E6%80%81"><span class="nav-number">3.1.</span> <span class="nav-text">top了解服务器的运行状态</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="nav-number"></span> <span class="nav-text">常用快捷键</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#b-%E5%88%87%E6%8D%A2%E9%AB%98%E4%BA%AE%E9%80%89%E4%B8%AD%EF%BC%88%E5%8F%AF%E9%87%8D%E5%A4%8D%E6%8C%89%E9%94%AE%E5%88%87%E6%8D%A2%EF%BC%89"><span class="nav-number">0.1.</span> <span class="nav-text">b 切换高亮选中（可重复按键切换）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F%E5%AD%97%E6%AE%B5"><span class="nav-number">0.2.</span> <span class="nav-text">排序字段</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%81%E4%B8%80%EF%BC%9Afree%E5%91%BD%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">十一：free命令</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="N9-zqc"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">N9-zqc</p>
+  <div class="site-description" itemprop="description">主要有关ctf的学习笔记,主攻逆向和Web,联系方式QQ:2501152740</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">N9-zqc</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
